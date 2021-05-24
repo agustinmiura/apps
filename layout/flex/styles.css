@@ -34,6 +34,10 @@
     color:black;
     text-shadow: 1px 1px 0px #ccc;
     text-transform: uppercase;
+    font-family: Helvetica;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 31px;
 }
 
 .logo h1 {
@@ -164,4 +168,30 @@
 #aside a:hover {
     background: #444;
     color:#eee
+}
+
+#footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    height:120px;
+    align-items: center;
+    border-top:1px solid rgba(225,225,225,0.8);
+}
+
+#footer .logo {
+    opacity: 0.5;
+    flex-basis: auto;
+    flex-grow: 1;
+    order:2;
+    text-align:right;
+    margin-right:20px
+}
+
+#footer .info {
+    flex-grow: 1;
+    order:1;
+    margin-left:20px;
+    color:#444
 }
