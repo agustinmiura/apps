@@ -1,5 +1,6 @@
 # Proyects index
 
+<<<<<<< HEAD
 **layout**
 
 - **[cssgrid]** - Css grid layout .
@@ -22,3 +23,15 @@
 
 - **[mongo-db-api]** -Mongo db api with Kotlin and Spring Boot .
 - **[bank-api]** -Bank api with security .
+=======
+Collections of apps that I have created .
+========================================
+
+* layout : Layouts with flexbox
+* 
+
+
+
+
+ 
+>>>>>>> 6a991d2 (Created a responsive design with flexbox.)
