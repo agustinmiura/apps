@@ -17,15 +17,13 @@
 }
 
 #header {
-  display:grid;
+  display: grid;
   grid-template-columns: 68% 30%;
-  align-items:center;
+  align-items: center;
 
   width: 100%;
   height: 120px;
   border-bottom: 1px solid rgba(225, 225, 225, 0.8);
-
-
 }
 
 .logo {
@@ -48,16 +46,15 @@
 }
 
 #menu {
-  width:100%;
+  width: 100%;
   height: 100%;
   padding-right: 20px;
 }
 
 #menu > ul {
-
-  display:grid;
+  display: grid;
   grid-template-columns: repeat(4, 1fr);
-  align-items:center;
+  align-items: center;
   justify-content: center;
   height: 100%;
   list-style: none;
@@ -77,22 +74,22 @@
 }
 
 #content {
-  display:grid;
+  display: grid;
   grid-template-columns: 20% 1fr;
   align-items: start;
   justify-items: space-between;
   padding-top: 20px;
   padding-bottom: 20px;
-  grid-column-gap:7px;
+  grid-column-gap: 7px;
 }
 
 #projects {
   display: grid;
   grid-template-columns: repeat(auto-fill, 255px);
-  grid-gap:20px;
+  grid-gap: 20px;
   justify-content: space-between;
   margin-right: 25px;
-  align-items:start;
+  align-items: start;
 }
 
 .project {
@@ -171,13 +168,12 @@
 }
 
 #footer {
-  display:grid;
+  display: grid;
   height: 120px;
   align-items: center;
   justify-content: start;
   grid-template-columns: 1fr 25%;
   border-top: 1px solid rgba(225, 225, 225, 0.8);
-  
 }
 
 #footer .logo {
@@ -189,4 +185,66 @@
   text-align: right;
   margin-right: 20px;
   color: #444;
+}
+
+@media (max-width: 786px) {
+  #header {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-content: center;
+    height: 140px;
+    padding-bottom: 20px;
+  }
+
+  #header h1 {
+    text-align: center;
+  }
+
+  #content {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: start;
+    justify-items: space-between;
+    grid-column-gap: auto;
+  }
+
+  #projects {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+  }
+
+  .project {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 100%;
+  }
+
+  #aside {
+    margin-right: 0px;
+    padding: 15px;
+  }
+
+  #aside ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+  }
+
+  #footer {
+    display: grid;
+    align-items: center;
+    justify-content: start;
+    grid-template-columns: 1fr;
+    text-align:center;
+  }
+
+  #footer .info{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: 1fr;
+    text-align:center;
+  }
 }
