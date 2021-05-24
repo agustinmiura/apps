@@ -1,0 +1,82 @@
+#website-areas * {
+  margin: 0px;
+  padding: 0px;
+}
+
+#website-areas {
+  width: 75%;
+  height: 100vh;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 150px 70px 1fr 70px;
+
+  grid-template-areas:
+    "header header header header header"
+    "menu menu menu menu menu"
+    "lateral content content content content "
+    "footer footer footer footer footer ";
+
+  grid-gap: 20px;
+
+  grid-column-gap: 20px;
+}
+
+#website-areas #header {
+  grid-area: header;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 150px;
+  background: blue;
+  color: white;
+}
+
+#website-areas #header h1 {
+  align-self: center;
+}
+
+#website-areas #menu {
+  grid-area: menu;
+  background: lightblue;
+  color: black;
+
+  line-height: 70px;
+}
+
+#website-areas #menu ul {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  list-style: none;
+}
+
+#website-areas #content {
+  grid-area: content;
+  background: #eee;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 25px;
+  padding: 20px;
+}
+
+#website-areas #content article {
+  background: #ccc;
+  border: 1px solid #555;
+}
+
+#website-areas #lateral {
+  grid-area: lateral;
+  background: orange;
+  color: white;
+  margin: 20px;
+}
+
+#website-areas #footer {
+  grid-area: footer;
+  background: black;
+  color: white;
+}
