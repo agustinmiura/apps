@@ -3,7 +3,7 @@
 Collections of apps that I have created .
 ========================================
 
-* Layout : Layouts with flexbox
+* layout : Layouts with flexbox
 * 
 
 
