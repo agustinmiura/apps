@@ -1,63 +1,70 @@
 #website * {
-    margin:0px;
-    padding:0px;
+  margin: 0px;
+  padding: 0px;
 }
 
 #website {
-    width: 75%;
-    height: 100vh;
-    margin:0 auto;
-    border: 1px solid #ccc;
+  width: 75%;
+  height: 100vh;
+  margin: 0 auto;
+  border: 1px solid #ccc;
 
-    display:grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 150px 70px 1fr 70px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 150px 70px 1fr 70px;
 }
 
 #header {
-    background: blue;
-    color:white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    grid-column: 1/6;
+  grid-column: 1/6;
+  height: 150px;
+  background: blue;
+  color: white;
+}
+
+#header h1 {
+  align-self: center;
 }
 
 #menu {
-    background: lightblue;
-    color:black;
+  background: lightblue;
+  color: black;
 
-    grid-column: 1/6;
+  grid-column: 1/6;
 }
 
 #menu ul {
-    display:grid;
-    grid-template-columns:repeat(9, 1fr);
-    list-style: none;
-
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  list-style: none;
 }
 
 #content {
-    background: #eee;
-    grid-column:1 / 5;
+  background: #eee;
+  grid-column: 1 / 5;
 
-    display:grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap:25px;
-    padding:20px
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 25px;
+  padding: 20px;
 }
 
 #content article {
-    background: #ccc;
-    border: 1px solid #555
+  background: #ccc;
+  border: 1px solid #555;
 }
 
 #lateral {
-    background: orange;
-    color:white
+  background: orange;
+  color: white;
 }
 
 #footer {
-    background: black;
-    color:white;
+  background: black;
+  color: white;
 
-    grid-column: 1/6;
+  grid-column: 1/6;
 }
