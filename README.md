@@ -1,12 +1,9 @@
 # apps
 
+
 Collections of apps that I have created .
 ========================================
 
-* layout : Layouts with flexbox
+* layout : Responsive layouts with flexbox and css grid .
 * 
 
-
-
-
- 
