@@ -1,9 +1,9 @@
-#website * {
+#website-areas * {
   margin: 0px;
   padding: 0px;
 }
 
-#website {
+#website-areas {
   width: 75%;
   height: 100vh;
   margin: 0 auto;
@@ -12,40 +12,46 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: 150px 70px 1fr 70px;
+
+  grid-template-areas:
+    "header header header header header"
+    "menu menu menu menu menu"
+    "lateral content content content content "
+    "lateral footer footer footer footer ";
 }
 
-#website #header {
+#website-areas #header {
+  grid-area: header;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  grid-column: 1/6;
   height: 150px;
   background: blue;
   color: white;
 }
 
-#website #header h1 {
+#website-areas #header h1 {
   align-self: center;
 }
 
-#website #menu {
+#website-areas #menu {
+  grid-area: menu;
   background: lightblue;
   color: black;
-  grid-column: 1/6;
 
   line-height: 70px;
 }
 
-#website #menu ul {
+#website-areas #menu ul {
   display: grid;
   grid-template-columns: repeat(9, 1fr);
   list-style: none;
 }
 
-#website #content {
+#website-areas #content {
+  grid-area: content;
   background: #eee;
-  grid-column: 1 / 5;
 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -53,19 +59,19 @@
   padding: 20px;
 }
 
-#website #content article {
+#website-areas #content article {
   background: #ccc;
   border: 1px solid #555;
 }
 
-#website #lateral {
+#website-areas #lateral {
+  grid-area: lateral;
   background: orange;
   color: white;
 }
 
-#website #footer {
+#website-areas #footer {
+  grid-area: footer;
   background: black;
   color: white;
-
-  grid-column: 1/6;
 }
