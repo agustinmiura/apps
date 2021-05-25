@@ -1,0 +1,19 @@
+
+#menu {
+    height:50px;
+}
+
+#menu ul {
+    line-height: 50px;
+    list-style:none;
+    line-height: 50px;
+}
+
+.item {
+    height: 150px;
+}
+
+footer {
+    height: 50px;
+    line-height: 50px;
+}
