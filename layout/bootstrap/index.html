@@ -15,7 +15,7 @@
     <title>Hello, world!</title>
   </head>
   <body>
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
         <header class="col-12 bg-primary text-white p4">
           <h1>Boostrap</h1>
@@ -37,7 +37,6 @@
               <h2>Products</h2>
               <hr />
               <div class="items">
-
                 <div class="row">
                   <div class="item col bg-primary m-2">Producto</div>
                   <div class="item col bg-warning m-2">Producto</div>
@@ -51,10 +50,34 @@
                   <div class="item col bg-success m-2">Producto</div>
                 </div>
 
+                <div class="row mt-1 justify-content-start">
+                  <div class="item col-3 bg-primary m-2">Producto</div>
+                  <div class="item col-3 bg-warning m-2">Producto</div>
+                </div>
+
+                <div class="row">
+                    <div class="item col-3 bg-primary offset-1">Producto</div>
+                    <div class="item col-2 bg-warning">Producto</div>
+                    <div class="item col-3 bg-danger offset-1">Producto</div>
+                    <div class="item col-2 bg-primary offset-1">Producto</div>
+                  </div>
               </div>
+
             </section>
             <aside class="col-3 border">
               <h2>Sidebar</h2>
+              <div class="row lateral bg-light align-items-center">
+                <div class="col-4 bg-primary">
+                    Elemento 1
+                </div>
+                <div class="col-4 bg-success">
+                    Elemento 2
+                </div>
+                <div class="col-4 bg-warning">
+                    Elemento 3
+                </div>
+
+              </div>
             </aside>
           </div>
         </section>
