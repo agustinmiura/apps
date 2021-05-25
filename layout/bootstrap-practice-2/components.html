@@ -224,45 +224,95 @@
 
         <!-- Jumbotron side -->
         <div class="col-md-4 mt-3">
-            <a class="btn btn-success" role="button" data-toggle="collapse" href="#info">
-                Mostrar info
-            </a>
+          <a
+            class="btn btn-success"
+            role="button"
+            data-toggle="collapse"
+            href="#info"
+          >
+            Mostrar info
+          </a>
 
-            <!-- collapse -->
-            <div class="collapse" id="info">
-                <div class="card card-body bg-dark text-white mt-2">
-                    This is the hidden content
-                </div>
+          <!-- collapse -->
+          <div class="collapse" id="info">
+            <div class="card card-body bg-dark text-white mt-2">
+              This is the hidden content
             </div>
-            <!-- collapse -->
+          </div>
+          <!-- collapse -->
 
-            <!-- progress bar -->
-            <div class="progress mt-5">
-                <div id="progressbar" class="progress-bar bg-success" role="progress-bar">
-                    
-                </div>
+          <!-- progress bar -->
+          <div class="progress mt-5">
+            <div
+              id="progressbar"
+              class="progress-bar bg-success"
+              role="progress-bar"
+            ></div>
+          </div>
+          <script>
+            var counter = 0;
+            setInterval(function () {
+              counter++;
+              document.querySelector("#progressbar").style.width =
+                counter + "%";
+              document.querySelector("#progressbar").innerHTML = counter + "%";
+            }, 1000);
+          </script>
+          <!-- progress bar -->
+
+          <!-- tooltip example -->
+          <button
+            class="mt-3 btn-tool"
+            type="btn btn-danger"
+            data-toggle="tooltip"
+            data-placement="bottom"
+            title="Clicking executes the action"
+          >
+            Alert
+          </button>
+
+          <button
+            class="mt-3 btn-tool"
+            type="btn btn-info"
+            data-toggle="tooltip"
+            data-placement="bottom"
+            title="Info tooltip"
+          >
+            Alert
+          </button>
+          <!-- tooltip example -->
+
+          <!--popvers-->
+          <button
+            class="mt-3 btn-pop"
+            type="btn btn-info"
+            data-container="body"
+            data-placement="bottom"
+            data-toggle="popover"
+            data-content="Popover sample"
+          >
+            Alert
+          </button>
+
+          <form class="mt-3">
+            <div class="form-group">
+              <label for="name">Nombre</label>
+              <input
+                type="text"
+                placeholder="Usuario"
+                class="form-control"
+                name="name"
+              />
             </div>
-            <script>
-                var counter = 0;
-                setInterval(function () {
-                    counter++;
-                    document.querySelector("#progressbar").style.width = counter + "%";
-                    document.querySelector("#progressbar").innerHTML = counter + "%";
-                }, 1000);
-            </script>
-            <!-- progress bar -->
 
-            <!-- tooltip example -->
-            <button
-                class="mt-3 btn-tool" 
-                type="btn btn-danger" 
-                data-toggle="tooltip"
-                data-placement="bottom"
-                title="Clicking executes the action">
-                Alert
-            </button>
-            <!-- tooltip example -->
-            
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="text" class="form-control" name="email" />
+            </div>
+
+            <input type="button" class="btn btn-success" value="send" />
+          </form>
+          <!--End of Jumbotron -->
         </div>
       </div>
 
@@ -348,8 +398,9 @@
     </div>
   </body>
   <script>
-      $(document).ready(function() {
-        $(".btn-tool").tooltip();
-      });
+    $(document).ready(function () {
+      $(".btn-tool").tooltip();
+      $(".btn-pop").popover();
+    });
   </script>
 </html>
