@@ -251,6 +251,18 @@
                 }, 1000);
             </script>
             <!-- progress bar -->
+
+            <!-- tooltip example -->
+            <button
+                class="mt-3 btn-tool" 
+                type="btn btn-danger" 
+                data-toggle="tooltip"
+                data-placement="bottom"
+                title="Clicking executes the action">
+                Alert
+            </button>
+            <!-- tooltip example -->
+            
         </div>
       </div>
 
@@ -336,6 +348,8 @@
     </div>
   </body>
   <script>
-
+      $(document).ready(function() {
+        $(".btn-tool").tooltip();
+      });
   </script>
 </html>
