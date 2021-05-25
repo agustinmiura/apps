@@ -39,32 +39,45 @@ export default function App() {
   };
 
   return (
-    <>
-      <form onSubmit={handleSearch}>
+    <div className="container max-w-md mx-auto p-4 m-2 bg-purple-50 shadow-lg rounded">
+      <h1 className="text-grey-darker text-3xl">Hooks news</h1>
+      <form onSubmit={handleSearch} className="mb-2">
         <input
           type="text"
           value={query}
           onChange={(event) => setQuery(event.target.value)}
           ref={serachInputRef}
+          className="border p-1 rounded"
         ></input>
-        <button type="submit">Search</button>
-        <button type="button" onClick={handleClearSearch}>
+        <button type="submit" className="bg-yellow-500 rounded m-1 p-1">
+          Search
+        </button>
+        <button
+          className="bg-green-500 text-white p-1 rounded"
+          type="button"
+          onClick={handleClearSearch}
+        >
           Clear
         </button>
       </form>
       {loading ? (
-        <div>Loading results ...</div>
+        <div className="text-orange">Loading results ...</div>
       ) : (
-        <ul>
+        <ul className="list-reset leading-normal">
           {results.map((result) => (
             <li key={result.objectID}>
-              <a href={result.url}>{result.title}</a>
+              <a
+                className="text-indigo-dark hover:bg-red-700"
+                href={result.url}
+              >
+                {result.title}
+              </a>
             </li>
           ))}
         </ul>
       )}
 
-      {error && <div>{error.message}</div>}
-    </>
+      {error && <div className="text-red font-bold">{error.message}</div>}
+    </div>
   );
 }
