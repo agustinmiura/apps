@@ -227,11 +227,30 @@
             <a class="btn btn-success" role="button" data-toggle="collapse" href="#info">
                 Mostrar info
             </a>
+
+            <!-- collapse -->
             <div class="collapse" id="info">
                 <div class="card card-body bg-dark text-white mt-2">
                     This is the hidden content
                 </div>
             </div>
+            <!-- collapse -->
+
+            <!-- progress bar -->
+            <div class="progress mt-5">
+                <div id="progressbar" class="progress-bar bg-success" role="progress-bar">
+                    
+                </div>
+            </div>
+            <script>
+                var counter = 0;
+                setInterval(function () {
+                    counter++;
+                    document.querySelector("#progressbar").style.width = counter + "%";
+                    document.querySelector("#progressbar").innerHTML = counter + "%";
+                }, 1000);
+            </script>
+            <!-- progress bar -->
         </div>
       </div>
 
@@ -316,4 +335,7 @@
       </div>
     </div>
   </body>
+  <script>
+
+  </script>
 </html>
