@@ -12,6 +12,7 @@ export default function reducer(state, action) {
       };
 
     case "UPDATE_TODO":
+      /* Move before the call to the server
       if (!action.payload) {
         return state;
       }
@@ -19,6 +20,8 @@ export default function reducer(state, action) {
         return state;
       }
       const updatedTodo = { ...state.currentTodo, text: action.payload };
+      */
+      const updatedTodo = action.payload;      
       const index = state.todos.findIndex((t) => t.id === state.currentTodo.id);
       const updatedTodos = [
         ...state.todos.slice(0, index),

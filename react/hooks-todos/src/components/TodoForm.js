@@ -19,23 +19,27 @@ export default function TodoForm() {
     }
   }, [currentTodo.id]);
 
-  const handleSubmit = async event => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     if (currentTodo.text) {
+      const response = await axios.patch(
+        `http://localhost:9000/todos/${currentTodo.id}`,
+        {
+          text: todo,
+        }
+      );
       dispatch({
         type: "UPDATE_TODO",
-        payload: todo,
+        payload: response.data,
       });
     } else {
-
-      const response = await axios.post('http://localhost:9000/todos', {
-        id:uuidv4(),
+      const response = await axios.post("http://localhost:9000/todos", {
+        id: uuidv4(),
         text: todo,
-        complete:false
-      })
+        complete: false,
+      });
       dispatch({ type: "ADD_TODO", payload: response.data });
-
     }
     setTodo("");
   };
