@@ -11,5 +11,6 @@ __layout__
 
 __react__
 
+- __[hooks-todos]__ -App made with react hooks, Bootstrap to create , read , update and delete notes.
 - __[hooks-news]__  -App made with react hooks, tailwind css to show news from hacker news .
 - __[react-hooks-intro]__ React app to learn hooks.
