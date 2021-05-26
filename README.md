@@ -1,15 +1,19 @@
-# apps
+# Proyects index
 
-Collections of apps that I have created .
-========================================
+__layout__
 
-* layout : Layouts with flexbox
-* css-grid : Responsive layout with css grid.
-* grid-layout: Layout with css grid .
-* react-hooks-intro : React app with hooks .
-* hook-news : React app with hooks .
+- __[cssgrid]__ - Css grid layout .
+  resize in browser.
+- __[grid-layout]__ Layout made with grid layout.
+- __[flex]__ Layout made with flex.
+- __[bootstrap-practice]__ Practice with Bootstrap.
+- __[bootstrap-practice-2]__ Practice with Bootstrap.
+
+__react__
+
+- __[hooks-news]__  -App made with react hooks, tailwind css to show news from hacker news .
+- __[react-hooks-intro]__ React app to learn hooks.
 
 
 
 
- 
