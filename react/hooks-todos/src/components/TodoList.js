@@ -24,9 +24,12 @@ export default function TodoList() {
               className={`flex-grow-1 ${
                 todo.complete && "text-decoration-line-through text-secondary"
               }`}
-              onDoubleClick={() =>
-                dispatch({ type: "TOGGLE_TODO", payload: todo })
-              }
+              onDoubleClick={async () => {
+                const response = await axios.patch(`http://localhost:9000/todos/${todo.id}`, {
+                  complete: !todo.complete,
+                });
+                dispatch({ type: "TOGGLE_TODO", payload: response.data })
+              }}
             >
               {todo.text}
             </span>
