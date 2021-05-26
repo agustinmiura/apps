@@ -1,6 +1,7 @@
 import React from "react";
 
 const TodosContext = React.createContext({
+  currentTodo:{},
   todos: [
     {
       id: 1,
@@ -17,7 +18,7 @@ const TodosContext = React.createContext({
       text: "Finish proyect",
       complete: true,
     },
-  ],
+  ]
 });
 
 export default TodosContext;

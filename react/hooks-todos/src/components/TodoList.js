@@ -24,7 +24,9 @@ export default function TodoList() {
             >{todo.text}</span>
 
             <div className="d-grip gap-3">
-              <button>
+              <button
+                onClick={() => dispatch({type:"SET_CURRENT_TODO", payload:todo})}
+              >
                 <div className="img-container">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
