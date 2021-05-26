@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useContext } from "react";
 import TodosContext from "../context";
 
@@ -42,7 +43,14 @@ export default function TodoList() {
                 </div>
               </button>
               <button
+                /*
                 onClick={() => dispatch({type:"REMOVE_TODO", payload:todo})}
+                */
+                onClick={() => {
+                  axios.delete(`http://localhost:9000/todos/${todo.id}`).then((response) => {
+                    dispatch({type:"REMOVE_TODO", payload:todo})
+                  }, (error) => {});
+                }}  
               >
                 <div className="img-container">
                   <svg
