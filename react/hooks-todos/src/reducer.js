@@ -36,18 +36,22 @@ export default function reducer(state, action) {
         currentTodo: action.payload,
       };
     case "ADD_TODO":
+      /* goes before doing the post request
       if (!action.payload) {
         return state;
       }
       if (state.todos.findIndex((t) => t.text === action.payload) > -1) {
         return state;
       }
+      */
+      /*
       const newTodo = {
         id: uuidv4(),
         text: action.payload,
         complete: false,
       };
-      const addedTodos = [...state.todos, newTodo];
+      */
+      const addedTodos = [...state.todos, action.payload];
       return {
         ...state,
         todos: addedTodos,

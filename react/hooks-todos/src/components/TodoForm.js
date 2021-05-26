@@ -1,45 +1,52 @@
-import React, { useState , useContext , useEffect } from "react";
-import TodosContext from '../context'
+import React, { useState, useContext, useEffect } from "react";
+import TodosContext from "../context";
+import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
 
 export default function TodoForm() {
+  const [todo, setTodo] = useState("");
 
-  const [todo, setTodo] = useState("")
-
-  const { state: { currentTodo = {} }, dispatch } = useContext(TodosContext);
+  const {
+    state: { currentTodo = {} },
+    dispatch,
+  } = useContext(TodosContext);
 
   useEffect(() => {
     if (currentTodo.text) {
       setTodo(currentTodo.text);
     } else {
-      setTodo("") 
+      setTodo("");
     }
-  }, [currentTodo.id])
+  }, [currentTodo.id]);
 
-  const handleSubmit = (event) => {
-
-    event.preventDefault(); 
+  const handleSubmit = async event => {
+    event.preventDefault();
 
     if (currentTodo.text) {
       dispatch({
-        type:"UPDATE_TODO",
-        payload: todo
-      })
-    
+        type: "UPDATE_TODO",
+        payload: todo,
+      });
     } else {
-      dispatch({type:"ADD_TODO", payload:todo});
-    
+
+      const response = await axios.post('http://localhost:9000/todos', {
+        id:uuidv4(),
+        text: todo,
+        complete:false
+      })
+      dispatch({ type: "ADD_TODO", payload: response.data });
+
     }
-    setTodo("")
+    setTodo("");
   };
 
   return (
     <div className="container-form mt-3">
-      <form 
-        onSubmit={handleSubmit}
-        className="">
-        <input type="text" 
+      <form onSubmit={handleSubmit} className="">
+        <input
+          type="text"
           className="border border-primary border-5 rounded"
-          onChange={event => setTodo(event.target.value)}  
+          onChange={(event) => setTodo(event.target.value)}
           value={todo}
         />
       </form>
