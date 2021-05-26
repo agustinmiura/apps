@@ -8,7 +8,7 @@ export default function TodoList() {
     state.todos.length > 0 ? `${state.todos.length} Todos` : `Nothing to do!`;
 
   return (
-    <div className="container-fluid mx-auto text-center">
+    <div>
       <h1 className="font-weight-bold">{title}</h1>
       <ul className="unstyled text-white p-0">
         {state.todos.map((todo) => (

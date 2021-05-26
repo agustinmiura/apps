@@ -1,29 +1,33 @@
-import React, { useContext, useReducer } from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import reportWebVitals from './reportWebVitals';
+import React, { useContext, useReducer } from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
 
-import TodosContext from './context';
-import todosReducer from './reducer';
+import TodosContext from "./context";
+import todosReducer from "./reducer";
 
-import TodoList from './components/TodoList';
+import TodoList from "./components/TodoList";
+import TodoForm from "./components/TodoForm";
 
 const App = () => {
   const initialState = useContext(TodosContext);
   const [state, dispatch] = useReducer(todosReducer, initialState);
 
   return (
-    <TodosContext.Provider value={{state, dispatch}}>
-      <TodoList />
+    <TodosContext.Provider value={{ state, dispatch }}>
+      <div class="container-fluid mx-auto text-center w-50">
+        <TodoForm />
+        <TodoList />
+      </div>
     </TodosContext.Provider>
   );
-}
+};
 
 ReactDOM.render(
   <React.StrictMode>
-    <App/>
+    <App />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
