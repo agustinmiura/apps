@@ -1,5 +1,6 @@
 # Proyects index
 
+<<<<<<< HEAD
 **layout**
 
 - **[cssgrid]** - Css grid layout .
@@ -26,13 +27,27 @@
 =======
 Collections of apps that I have created .
 ========================================
+=======
+__layout__
+>>>>>>> b87bbf7 (Created react js apps and organized the code .)
 
-* layout : Layouts with flexbox
-* css-grid : Responsive layout with css grid.
-* grid-layout: Layout with css grid .
+- __[cssgrid]__ - Css grid layout .
+  resize in browser.
+- __[grid-layout]__ Layout made with grid layout.
+- __[flex]__ Layout made with flex.
+- __[bootstrap-practice]__ Practice with Bootstrap.
+- __[bootstrap-practice-2]__ Practice with Bootstrap.
+
+__react__
+
+- __[hooks-news]__  -App made with react hooks, tailwind css to show news from hacker news .
+- __[react-hooks-intro]__ React app to learn hooks.
 
 
 
 
+<<<<<<< HEAD
  
 >>>>>>> 6a991d2 (Created a responsive design with flexbox.)
+=======
+>>>>>>> b87bbf7 (Created react js apps and organized the code .)
