@@ -1,5 +1,4 @@
-import { render, screen } from "@testing-library/react";
-import { scryRenderedComponentsWithType } from "react-dom/test-utils";
+import { render, screen } from "../../../test-utils/testing-library-utils";
 
 import Options from "../Options";
 
