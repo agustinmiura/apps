@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # React Js app with React Testing Library
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -17,6 +18,20 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 >>>>>>> ccd2ac9 (Added more components and tests.)
+=======
+# React Js app with React Testing Library
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Setup
+
+- Clone the proyect .
+- Run the command : `npm install`
+- Go to the folder : `react/sundae-server`
+- Start the server : `npm install && npm start`
+- Start the client : `npm start`
+
+>>>>>>> f312be6 (Added more features to the ice cream app with functional testing .)
 ## Available Scripts
 
 In the project directory, you can run:
@@ -33,6 +48,7 @@ You will also see any lint errors in the console.
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -86,3 +102,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 >>>>>>> ccd2ac9 (Added more components and tests.)
+=======
+>>>>>>> f312be6 (Added more features to the ice cream app with functional testing .)

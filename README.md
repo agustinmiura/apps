@@ -2,6 +2,7 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 **layout**
 
 - **[cssgrid]** - Css grid layout .
@@ -29,9 +30,13 @@ Collections of apps that I have created .
 =======
 __layout__
 >>>>>>> b87bbf7 (Created react js apps and organized the code .)
+=======
+**layout**
+>>>>>>> f312be6 (Added more features to the ice cream app with functional testing .)
 
-- __[cssgrid]__ - Css grid layout .
+- **[cssgrid]** - Css grid layout .
   resize in browser.
+<<<<<<< HEAD
 - __[grid-layout]__ Layout made with grid layout.
 - __[flex]__ Layout made with flex.
 - __[bootstrap-practice]__ Practice with Bootstrap.
@@ -60,3 +65,18 @@ __react__
 >>>>>>> e69dca0 (Created todo app with react hooks and context api .)
 =======
 >>>>>>> 56ef978 (Created React js app with unit testing and code coverage.)
+=======
+- **[grid-layout]** Layout made with grid layout.
+- **[flex]** Layout made with flex.
+- **[bootstrap-practice]** Practice with Bootstrap.
+- **[bootstrap-practice-2]** Practice with Bootstrap.
+
+**react**
+
+- **[hooks-news]** -App made with react hooks, tailwind css to show news from hacker news .
+- **[hooks-todos]** React todos app with hooks.
+- **[sundeas-on-demand]** React Js application with React Testing Library .
+- **[sundae-server]** Backend for the react js application below.
+- **[react-hooks-intro]** React app to learn hooks.
+- **[color-button]** React js with React Testing Library.
+>>>>>>> f312be6 (Added more features to the ice cream app with functional testing .)
