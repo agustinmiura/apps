@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Container from "react-bootstrap/Container";
 import OrderEntry from "./pages/entry/OrderEntry";
 import { OrderDetailsProvider } from "./contexts/OrderDetails";
@@ -36,6 +37,21 @@ function App() {
       </header>
     </div>
 >>>>>>> ccd2ac9 (Added more components and tests.)
+=======
+import Container from "react-bootstrap/Container";
+import OrderEntry from "./pages/entry/OrderEntry";
+import { OrderDetailsProvider } from "./contexts/OrderDetails";
+
+function App() {
+  return (
+    <Container>
+      <OrderDetailsProvider>
+        {}
+        <OrderEntry />
+      </OrderDetailsProvider>
+      {}
+    </Container>
+>>>>>>> f312be6 (Added more features to the ice cream app with functional testing .)
   );
 }
 
