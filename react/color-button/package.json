@@ -6,8 +6,11 @@
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+<<<<<<< HEAD
     "eslint-plugin-jest-dom": "^3.9.0",
     "eslint-plugin-testing-library": "^3.10.2",
+=======
+>>>>>>> 56ef978 (Created React js app with unit testing and code coverage.)
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
