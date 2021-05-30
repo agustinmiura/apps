@@ -59,3 +59,16 @@ test('when clicked button is disabled', () => {
   expect(check).toHaveAttribute('checked')
 })
 
+test('Checkbox disables the button on first click and enables on the second one', () => {
+
+  render(<App />)
+  const checkbox = screen.getByRole('checkbox', {name:'Disable button'});
+  const colorButton = screen.getByRole('button', {name:'Change to red'});
+
+  fireEvent.click(checkbox);
+  expect(colorButton).toBeDisabled();
+
+  fireEvent.click(checkbox);
+  expect(colorButton).toBeEnabled();
+
+})
