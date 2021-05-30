@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bootstrap 4 Example</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <header class="col-12 bg-primary text-white p4">
+          <h1>Boostrap</h1>
+        </header>
+
+        <nav
+          id="menu"
+          class="col-12 bg-secondary text-white d-block d-none d-sm-none d-md-block"
+        >
+          <ul class="row list-unstyled p4">
+            <li class="col col-xs-12 col-sm-12 col-md">Inicio</li>
+            <li class="col col-xs-12 col-sm-12 col-md">Page 1</li>
+            <li class="col col-xs-12 col-sm-12 col-md">Page 2</li>
+            <li class="col col-xs-12 col-sm-12 col-md">Page 3</li>
+            <li class="col col-xs-12 col-sm-12 col-md">Page</li>
+          </ul>
+        </nav>
+
+        <section id="content" class="col-12">
+          <div class="row">
+            <section id="products" class="col-9 border col-xs-12 col-md-9">
+              <h2>Products</h2>
+              <hr />
+              <div class="items">
+                <div class="row">
+                  <div class="item col col-lg col-md-12 col-sm-12 bg-primary">
+                    Producto
+                  </div>
+                  <div class="item col col-lg col-md-6 col-sm-6 bg-warning">
+                    Producto
+                  </div>
+                  <div class="item col col-lg col-md-6 col-sm-6 bg-danger">
+                    Producto
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="item col bg-primary m-2">Product</div>
+                  <div class="item col bg-warning m-2">Product</div>
+                  <div class="item col bg-danger m-2">Product</div>
+                </div>
+
+                <div class="row">
+                  <div class="item col bg-primary m-2">Product</div>
+                  <div class="item col bg-warning m-2">Product</div>
+                  <div class="item col bg-danger m-2">Product</div>
+                  <div class="item col bg-success m-2">Product</div>
+                </div>
+
+                <div class="row mt-1 justify-content-start">
+                  <div class="item col-3 bg-primary m-2">Product</div>
+                  <div class="item col-3 bg-warning m-2">Product</div>
+                </div>
+              </div>
+            </section>
+            <aside class="col-3 border">
+              <h2>Sidebar</h2>
+              <div class="row lateral bg-light align-items-center">
+                <div class="col-12 bg-primary">Element 1</div>
+                <div class="col-12 bg-success">Element 2</div>
+                <div class="col-12 bg-warning">Element 3</div>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <footer class="col-lg-12 bg-info">Footer &copy</footer>
+      </div>
+    </div>
+  </body>
+</html>
