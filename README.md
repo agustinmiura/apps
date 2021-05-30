@@ -14,7 +14,3 @@ __react__
 - __[hooks-news]__  -App made with react hooks, tailwind css to show news from hacker news .
 - __[hooks-todos]__ React todos app with hooks.
 - __[react-hooks-intro]__ React app to learn hooks.
-
-
-
-
