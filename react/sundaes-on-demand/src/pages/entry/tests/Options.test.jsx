@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 import { render, screen } from "../../../test-utils/testing-library-utils";
+=======
+import { render, screen } from "@testing-library/react";
+import { scryRenderedComponentsWithType } from "react-dom/test-utils";
+>>>>>>> latest
 
 import Options from "../Options";
 
