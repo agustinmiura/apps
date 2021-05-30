@@ -42,3 +42,16 @@ test('initial conditions', () => {
   const check = screen.getByRole('checkbox')
   expect(check).not.toBeChecked()
 })
+
+test('when clicked button is disabled', () => {
+  render(<App />)
+  const colorButton = screen.getByRole('button', {
+    name: 'Change to red'
+  })
+  const check = screen.getByRole('checkbox')
+
+  fireEvent.click(check)
+  expect(colorButton).not.toBeEnabled()
+  expect(check).toHaveAttribute('checked')
+})
+
