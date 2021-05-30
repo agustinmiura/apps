@@ -1,12 +1,8 @@
-<<<<<<< HEAD
 import {
   render,
   screen,
   waitFor,
 } from "../../../test-utils/testing-library-utils";
-=======
-import { render, screen, waitFor } from "@testing-library/react";
->>>>>>> latest
 import OrderEntry from "../OrderEntry";
 import { rest } from "msw";
 import { server } from "../../../mocks/server";
