@@ -4,20 +4,32 @@ import Row from "react-bootstrap/Row";
 import ScoopOption from "./ScoopOption";
 import ToppingOption from "./ToppingOption";
 import AlertBanner from "../common/AlertBanner";
+<<<<<<< HEAD
 import { pricePerItem } from "../../constants";
 import { useOrderDetails } from "../../contexts/OrderDetails";
+=======
+>>>>>>> ccd2ac9 (Added more components and tests.)
 
 export default function Options({ optionType }) {
   const [items, setItems] = useState([]);
   const [error, setError] = useState(false);
+<<<<<<< HEAD
   const [orderDetails, updateItemCount] = useOrderDetails();
+=======
+>>>>>>> ccd2ac9 (Added more components and tests.)
 
   // optionType is 'scoops' or 'toppings'
   useEffect(() => {
     axios
       .get(`http://localhost:3030/${optionType}`)
       .then((response) => setItems(response.data))
+<<<<<<< HEAD
       .catch((error) => setError(true));
+=======
+      .catch((error) => {
+        setError(true);
+      });
+>>>>>>> ccd2ac9 (Added more components and tests.)
   }, [optionType]);
 
   if (error) {
@@ -26,13 +38,17 @@ export default function Options({ optionType }) {
   }
 
   const ItemComponent = optionType === "scoops" ? ScoopOption : ToppingOption;
+<<<<<<< HEAD
   const title = optionType[0].toUpperCase() + optionType.slice(1).toLowerCase();
+=======
+>>>>>>> ccd2ac9 (Added more components and tests.)
 
   const optionItems = items.map((item) => (
     <ItemComponent
       key={item.name}
       name={item.name}
       imagePath={item.imagePath}
+<<<<<<< HEAD
       updateItemCount={(itemName, newItemCount) =>
         updateItemCount(itemName, newItemCount, optionType)
       }
@@ -49,4 +65,10 @@ export default function Options({ optionType }) {
       <Row>{optionItems}</Row>
     </>
   );
+=======
+    />
+  ));
+
+  return <Row>{optionItems}</Row>;
+>>>>>>> ccd2ac9 (Added more components and tests.)
 }
