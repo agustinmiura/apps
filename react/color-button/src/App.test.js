@@ -39,7 +39,9 @@ test('initial conditions', () => {
     name: 'Change to red'
   })
   expect(colorButton).toBeEnabled()
-  const check = screen.getByRole('checkbox')
+  const check = screen.getByRole('checkbox',{
+    name:'Disable button'
+  })
   expect(check).not.toBeChecked()
 })
 
@@ -48,7 +50,9 @@ test('when clicked button is disabled', () => {
   const colorButton = screen.getByRole('button', {
     name: 'Change to red'
   })
-  const check = screen.getByRole('checkbox')
+  const check = screen.getByRole('checkbox', {
+    name:'Disable button'
+  })
 
   fireEvent.click(check)
   expect(colorButton).not.toBeEnabled()
