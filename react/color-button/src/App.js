@@ -1,5 +1,3 @@
-import './App.css';
-
 import { useState } from 'react';
 
 export function replaceCamelWithSpaces(colorName) {
@@ -7,28 +5,27 @@ export function replaceCamelWithSpaces(colorName) {
 }
 
 function App() {
-
-  const [buttonColor, setButtonColor] = useState('blue')
-  const [disabled, setDisabled] = useState(false);
-
-  const newButtonColor = buttonColor === 'red' ? 'blue' : 'red';
-
+  const [ buttonColor, setButtonColor ] = useState('MediumVioletRed');
+  const [ disabled, setDisabled ] = useState(false);
+  
+  const newButtonColor = buttonColor === 'MediumVioletRed' ? 'MidnightBlue' : 'MediumVioletRed';
+  
   return (
-    <div className="App">
+    <div>
       <button
-        style={{ backgroundColor: disabled ? 'gray' : buttonColor }}
+        style={{backgroundColor: disabled ? 'gray' : buttonColor}}
         onClick={() => setButtonColor(newButtonColor)}
         disabled={disabled}
-      >Change to {newButtonColor}</button>
-      <br />
-      <input
+      >Change to {replaceCamelWithSpaces(newButtonColor)}</button>
+    <br />
+    <input
         type="checkbox"
         id="disable-button-checkbox"
         defaultChecked={disabled}
         aria-checked={disabled}
         onChange={(e) => setDisabled(e.target.checked)} />
-      <label htmlFor="disable-button-checkbox">Disable button</label>
-    </div>
+        <label htmlFor="disable-button-checkbox">Disable button</label>
+    </div>  
   );
 }
 
