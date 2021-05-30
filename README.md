@@ -13,4 +13,6 @@ __react__
 
 - __[hooks-news]__  -App made with react hooks, tailwind css to show news from hacker news .
 - __[hooks-todos]__ React todos app with hooks.
+- __[sundaes-on-demans]__ React Js app with hooks and React Testing .
 - __[react-hooks-intro]__ React app to learn hooks.
+- __[color-button]__ React app with React testing.
