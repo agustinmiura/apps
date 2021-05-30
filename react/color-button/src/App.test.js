@@ -1,11 +1,11 @@
-import { render, screen , fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import App from './App';
 
 test('button has correct initial color', () => {
   render(<App />)
-  
+
   const colorButton = screen.getByRole('button', {
-    name:'Change to red'
+    name: 'Change to red'
   })
 
   expect(colorButton).toHaveStyle({
@@ -31,5 +31,14 @@ test('button turns blue when clicked', () => {
 
   expect(colorButton.textContent).toBe('Change to blue')
 
+})
 
+test('initial conditions', () => {
+  render(<App />)
+  const colorButton = screen.getByRole('button', {
+    name: 'Change to red'
+  })
+  expect(colorButton).toBeEnabled()
+  const check = screen.getByRole('checkbox')
+  expect(check).not.toBeChecked()
 })
