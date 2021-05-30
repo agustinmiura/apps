@@ -43,10 +43,14 @@ __react__
 - __[hooks-todos]__ React todos app with hooks.
 - __[react-hooks-intro]__ React app to learn hooks.
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 56ef978 (Created React js app with unit testing and code coverage.)
 
 
 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
  
 >>>>>>> 6a991d2 (Created a responsive design with flexbox.)
@@ -54,3 +58,5 @@ __react__
 >>>>>>> b87bbf7 (Created react js apps and organized the code .)
 =======
 >>>>>>> e69dca0 (Created todo app with react hooks and context api .)
+=======
+>>>>>>> 56ef978 (Created React js app with unit testing and code coverage.)
