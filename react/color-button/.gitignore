@@ -21,6 +21,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+<<<<<<< HEAD
 
 .vscode
 .eslintcache
+=======
+>>>>>>> 56ef978 (Created React js app with unit testing and code coverage.)
