@@ -1,7 +1,11 @@
 version: '3'
 services:
   my-mongoDB:
+<<<<<<< HEAD
     image: mongo:3.4.8
+=======
+    image: mongo:3
+>>>>>>> 1125c07 (Feature/spring boot mongo kotlin)
     ports:
       - "27017:27017"
     volumes:

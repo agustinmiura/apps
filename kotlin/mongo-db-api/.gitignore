@@ -31,6 +31,9 @@ build/
 
 ### VS Code ###
 .vscode/
+<<<<<<< HEAD
 
 application.properties
 
+=======
+>>>>>>> 1125c07 (Feature/spring boot mongo kotlin)
