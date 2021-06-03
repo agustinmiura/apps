@@ -2,6 +2,7 @@ package ar.com.miura.mongodbapi.controller
 
 import ar.com.miura.mongodbapi.domain.Student
 import ar.com.miura.mongodbapi.repository.StudentRepository
+<<<<<<< HEAD
 import ar.com.miura.mongodbapi.service.StudentService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
@@ -80,4 +81,22 @@ class StudentController (
         return studentService.byNameStartsWith(name)
     }
 
+=======
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RestController
+
+@RestController
+@RequestMapping("/students")
+open class StudentController (@Autowired val studentRepository: StudentRepository){
+
+    @GetMapping
+    fun getAllStudents(): ResponseEntity<List<Student>> {
+        val students = studentRepository.findAll();
+        return ResponseEntity.ok(students);
+    }
+
+>>>>>>> 1125c07 (Feature/spring boot mongo kotlin)
 }

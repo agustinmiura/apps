@@ -31,6 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+<<<<<<< HEAD
 
 application.properties
 
@@ -39,3 +40,5 @@ application.properties
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+=======
+>>>>>>> 1125c07 (Feature/spring boot mongo kotlin)

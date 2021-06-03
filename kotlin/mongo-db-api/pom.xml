@@ -39,6 +39,7 @@
         <sonar.java.codeCoveragePlugin>jacoco</sonar.java.codeCoveragePlugin>
     </properties>
     <dependencies>
+<<<<<<< HEAD
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -46,6 +47,8 @@
             <version>2.4.6</version>
         </dependency>
 
+=======
+>>>>>>> 1125c07 (Feature/spring boot mongo kotlin)
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-mongodb</artifactId>
@@ -153,7 +156,10 @@
     </dependencies>
 
     <build>
+<<<<<<< HEAD
         <finalName>students-api</finalName>
+=======
+>>>>>>> 1125c07 (Feature/spring boot mongo kotlin)
         <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
         <testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
         <plugins>
