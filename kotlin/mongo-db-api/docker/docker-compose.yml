@@ -1,0 +1,15 @@
+version: '3'
+services:
+  my-mongoDB:
+    image: mongo:3
+    ports:
+      - "27017:27017"
+    volumes:
+      - data-db:/data/db
+      - mongo-config:/data/configdb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+volumes:
+  data-db:
+  mongo-config:
