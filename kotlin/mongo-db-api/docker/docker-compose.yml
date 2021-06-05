@@ -1,7 +1,7 @@
 version: '3'
 services:
   my-mongoDB:
-    image: mongo:3
+    image: mongo:3.4.8
     ports:
       - "27017:27017"
     volumes:
