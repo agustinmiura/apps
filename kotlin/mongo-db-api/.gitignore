@@ -32,8 +32,14 @@ build/
 ### VS Code ###
 .vscode/
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 application.properties
 
 =======
 >>>>>>> 1125c07 (Feature/spring boot mongo kotlin)
+=======
+
+application.properties
+
+>>>>>>> d8a8e34 (Added queries and endpoints .)
