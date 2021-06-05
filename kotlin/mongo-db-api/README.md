@@ -26,6 +26,10 @@
  * ```show databases``` To list .
  * ```use $databaseName``` To choose a database name.
 
+# Sprint boot actuator :
+
+* Check the endpoint : ```/actuator/health``` and see the health check .
+
 #Create and run the docker image 
 
 * Execute ```mvn clean package``` to create the package .
