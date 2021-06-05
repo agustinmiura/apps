@@ -24,6 +24,7 @@
 **kotlin**
 
 - **[mongo-db-api]** -Mongo db api with Kotlin and Spring Boot .
+<<<<<<< HEAD
 =======
 Collections of apps that I have created .
 ========================================
@@ -80,3 +81,6 @@ __react__
 - **[react-hooks-intro]** React app to learn hooks.
 - **[color-button]** React js with React Testing Library.
 >>>>>>> f312be6 (Added more features to the ice cream app with functional testing .)
+=======
+
+>>>>>>> a16a396 (Spring boot actuator and other things .)
