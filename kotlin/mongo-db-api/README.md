@@ -48,6 +48,10 @@
 =======
 >>>>>>> d8a8e34 (Added queries and endpoints .)
 
+# Sprint boot actuator :
+
+* Check the endpoint : ```/actuator/health``` and see the health check .
+
 #Create and run the docker image 
 
 * Execute ```mvn clean package``` to create the package .

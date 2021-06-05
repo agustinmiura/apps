@@ -40,6 +40,9 @@
     </properties>
     <dependencies>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> a16a396 (Spring boot actuator and other things .)
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -47,8 +50,11 @@
             <version>2.4.6</version>
         </dependency>
 
+<<<<<<< HEAD
 =======
 >>>>>>> 1125c07 (Feature/spring boot mongo kotlin)
+=======
+>>>>>>> a16a396 (Spring boot actuator and other things .)
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-mongodb</artifactId>

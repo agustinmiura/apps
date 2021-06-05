@@ -11,6 +11,9 @@ timezone=America/Argentina/Buenos_Aires
 #spring.data.mongodb.host=127.0.0.1
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> a16a396 (Spring boot actuator and other things .)
 #spring.data.mongodb.uri=mongodb://root:password@127.0.0.1:27017/spring?authSource=admin
 spring.data.mongodb.uri=mongodb+srv://$username:$port@$host/myFirstDatabase?retryWrites=true&w=majority
 
@@ -19,8 +22,11 @@ logging.level.org.springframework.data.mongodb.core.MongoTemplate=DEBUG
 #For all endpoints
 #management.endpoints.web.exposure.include=*
 management.endpoints.web.exposure.include=health
+<<<<<<< HEAD
 =======
 spring.data.mongodb.uri=mongodb+srv://$username:$port@$host/myFirstDatabase?retryWrites=true&w=majority
 
 logging.level.org.springframework.data.mongodb.core.MongoTemplate=DEBUG
 >>>>>>> d8a8e34 (Added queries and endpoints .)
+=======
+>>>>>>> a16a396 (Spring boot actuator and other things .)
