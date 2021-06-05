@@ -153,14 +153,7 @@
     </dependencies>
 
     <build>
-<<<<<<< HEAD
-<<<<<<< HEAD
         <finalName>students-api</finalName>
-=======
->>>>>>> 1125c07 (Feature/spring boot mongo kotlin)
-=======
-        <finalName>students-api</finalName>
->>>>>>> d8a8e34 (Added queries and endpoints .)
         <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
         <testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
         <plugins>

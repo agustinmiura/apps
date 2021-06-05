@@ -31,23 +31,11 @@ build/
 
 ### VS Code ###
 .vscode/
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 application.properties
 
-<<<<<<< HEAD
-=======
->>>>>>> 1125c07 (Feature/spring boot mongo kotlin)
-=======
-
-application.properties
-
->>>>>>> d8a8e34 (Added queries and endpoints .)
-=======
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
->>>>>>> a16a396 (Spring boot actuator and other things .)
