@@ -12,10 +12,12 @@
 
 # Getting Started
 
+ * Setup the ```application.properties``` according to the ```application.properties.sample```
  * Run the command ```mvn clean compile``` to compile .
  * Run the command ```mvn clean test``` to run test . 
  * Run the command ```docker-compose up``` to start the local image . "
  * Run the command ```mvn clean test``` to get the reports of coverage inside ```/target/site/jacoco/index.html``` . "
+ * Run the commmand ```mvn clean package``` to generate the file ```target/students-api.jar``` before setting ```application.properties```.
 
 #Querying the database 
 
@@ -23,4 +25,36 @@
  * Connect to the database : ```mongo -p $password -u $user -p $password```
  * ```show databases``` To list .
  * ```use $databaseName``` To choose a database name.
- * 
+
+#Create and run the docker image 
+
+* Execute ```mvn clean package``` to create the package .
+* Run the command : ```docker build --tag=student-api:latest .```
+* Execute the image : ```docker run -p8080:8080 student-api:latest```
+
+#Sample insertion data 
+
+* For creating a student :
+
+``` 
+{
+  "name": "John3",
+  "email": "jpohn3@gmail.com",
+  "department": {
+    "departmentName": "name",
+    "location": "USA"
+  },
+  "subjects": [
+    {
+      "subjectName": "math3",
+      "marksObtained": 101
+    },
+    {
+      "subjectName": "math3",
+      "marksObtained": 21
+    }
+  ]
+}
+```
+
+ 
