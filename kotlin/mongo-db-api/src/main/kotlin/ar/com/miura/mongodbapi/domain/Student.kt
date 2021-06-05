@@ -2,6 +2,7 @@ package ar.com.miura.mongodbapi.domain
 
 import org.bson.types.ObjectId
 import org.springframework.data.annotation.Id
+import org.springframework.data.mongodb.core.mapping.DBRef
 import org.springframework.data.mongodb.core.mapping.Document
 import org.springframework.data.mongodb.core.mapping.Field
 import java.time.LocalDateTime
@@ -18,16 +19,20 @@ data class Student (
     val email: String? = "",
 
     @Field(name="department")
+    @DBRef(lazy=false)
     val department: Department? = Department(),
 
     @Field(name="subjects")
-    val subjects: List<Subject> = ArrayList<Subject>(),
+    @DBRef(lazy=false)
+    val subjects: List<Subject> = ArrayList(),
 
     @Field(name="created_date")
     val createdDate: LocalDateTime = LocalDateTime.now(),
 
     @Field(name="modified_date")
-    val modifiedDate: LocalDateTime = LocalDateTime.now()
+    val modifiedDate: LocalDateTime = LocalDateTime.now(),
 
+    @Transient
+    val percentage: Double = 0.0
 
 )
