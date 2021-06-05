@@ -25,10 +25,14 @@
     </logger>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     <logger name="org.springframework.data.mongodb.core.MongoTemplate" additivity="false" level="debug">
 =======
     <logger name="org.springframework.data.mongodb.core.MongoTemplate" additivity="false" level="DEBUG">
 >>>>>>> 1125c07 (Feature/spring boot mongo kotlin)
+=======
+    <logger name="org.springframework.data.mongodb.core.MongoTemplate" additivity="false" level="debug">
+>>>>>>> a16a396 (Spring boot actuator and other things .)
         <appender-ref ref="SAVE-TO-FILE"/>
         <appender-ref ref="STDOUT"/>
     </logger>
