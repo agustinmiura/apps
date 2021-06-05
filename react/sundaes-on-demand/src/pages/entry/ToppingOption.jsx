@@ -1,11 +1,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9b39699 (Fixed merge)
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 
 export default function ToppingOption({ name, imagePath, updateItemCount }) {
   return (
     <Col xs={6} sm={4} md={3} lg={2} style={{ textAlign: "center" }}>
+<<<<<<< HEAD
 =======
 import React from "react";
 =======
@@ -21,6 +25,8 @@ export default function ToppingOption({ name, imagePath, updateItemCount }) {
 =======
     <Col xs={6} sm={4} md={3} lg={2} style={{ textAlign: "center" }}>
 >>>>>>> f312be6 (Added more features to the ice cream app with functional testing .)
+=======
+>>>>>>> 9b39699 (Fixed merge)
       <img
         style={{ width: "75%" }}
         src={`http://localhost:3030/${imagePath}`}
@@ -28,8 +34,11 @@ export default function ToppingOption({ name, imagePath, updateItemCount }) {
       />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> f312be6 (Added more features to the ice cream app with functional testing .)
+=======
+>>>>>>> 9b39699 (Fixed merge)
       <Form.Group controlId={`${name}-topping-checkbox`}>
         <Form.Check
           type="checkbox"
@@ -40,10 +49,13 @@ export default function ToppingOption({ name, imagePath, updateItemCount }) {
         />
       </Form.Group>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> ccd2ac9 (Added more components and tests.)
 =======
 >>>>>>> f312be6 (Added more features to the ice cream app with functional testing .)
+=======
+>>>>>>> 9b39699 (Fixed merge)
     </Col>
   );
 }

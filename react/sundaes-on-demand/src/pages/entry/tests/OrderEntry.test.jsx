@@ -1,18 +1,24 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> f312be6 (Added more features to the ice cream app with functional testing .)
+=======
+>>>>>>> 9b39699 (Fixed merge)
 import {
   render,
   screen,
   waitFor,
 } from "../../../test-utils/testing-library-utils";
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import { render, screen, waitFor } from "@testing-library/react";
 >>>>>>> ccd2ac9 (Added more components and tests.)
 =======
 >>>>>>> f312be6 (Added more features to the ice cream app with functional testing .)
+=======
+>>>>>>> 9b39699 (Fixed merge)
 import OrderEntry from "../OrderEntry";
 import { rest } from "msw";
 import { server } from "../../../mocks/server";

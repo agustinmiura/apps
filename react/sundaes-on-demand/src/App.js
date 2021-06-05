@@ -1,5 +1,8 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9b39699 (Fixed merge)
 import Container from "react-bootstrap/Container";
 import OrderEntry from "./pages/entry/OrderEntry";
 import { OrderDetailsProvider } from "./contexts/OrderDetails";
@@ -13,6 +16,7 @@ function App() {
       </OrderDetailsProvider>
       {}
     </Container>
+<<<<<<< HEAD
 =======
 import logo from "./logo.svg";
 import "./App.css";
@@ -52,6 +56,8 @@ function App() {
       {}
     </Container>
 >>>>>>> f312be6 (Added more features to the ice cream app with functional testing .)
+=======
+>>>>>>> 9b39699 (Fixed merge)
   );
 }
 

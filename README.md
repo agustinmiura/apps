@@ -2,6 +2,9 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9b39699 (Fixed merge)
 **layout**
 
 - **[cssgrid]** - Css grid layout .
@@ -19,6 +22,7 @@
 - **[sundae-server]** Backend for the react js application below.
 - **[react-hooks-intro]** React app to learn hooks.
 - **[color-button]** React js with React Testing Library.
+<<<<<<< HEAD
 
 **Kotlin**
 
@@ -81,3 +85,5 @@ __react__
 - **[react-hooks-intro]** React app to learn hooks.
 - **[color-button]** React js with React Testing Library.
 >>>>>>> f312be6 (Added more features to the ice cream app with functional testing .)
+=======
+>>>>>>> 9b39699 (Fixed merge)

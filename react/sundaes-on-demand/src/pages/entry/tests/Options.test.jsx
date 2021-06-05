@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { render, screen } from "../../../test-utils/testing-library-utils";
 =======
 import { render, screen } from "@testing-library/react";
@@ -8,6 +9,9 @@ import { scryRenderedComponentsWithType } from "react-dom/test-utils";
 =======
 import { render, screen } from "../../../test-utils/testing-library-utils";
 >>>>>>> f312be6 (Added more features to the ice cream app with functional testing .)
+=======
+import { render, screen } from "../../../test-utils/testing-library-utils";
+>>>>>>> 9b39699 (Fixed merge)
 
 import Options from "../Options";
 

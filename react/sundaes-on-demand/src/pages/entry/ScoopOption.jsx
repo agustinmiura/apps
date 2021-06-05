@@ -1,8 +1,11 @@
 import Col from "react-bootstrap/Col";
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> f312be6 (Added more features to the ice cream app with functional testing .)
+=======
+>>>>>>> 9b39699 (Fixed merge)
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 
@@ -12,6 +15,7 @@ export default function ScoopOptions({ name, imagePath, updateItemCount }) {
   };
 <<<<<<< HEAD
 
+<<<<<<< HEAD
 =======
 
 export default function ScoopOptions({ name, imagePath }) {
@@ -19,6 +23,8 @@ export default function ScoopOptions({ name, imagePath }) {
 =======
 
 >>>>>>> f312be6 (Added more features to the ice cream app with functional testing .)
+=======
+>>>>>>> 9b39699 (Fixed merge)
   return (
     <Col xs={12} sm={6} md={4} lg={3} style={{ textAlign: "center" }}>
       <img
@@ -28,8 +34,11 @@ export default function ScoopOptions({ name, imagePath }) {
       />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> f312be6 (Added more features to the ice cream app with functional testing .)
+=======
+>>>>>>> 9b39699 (Fixed merge)
       <Form.Group
         controlId={`${name}-count`}
         as={Row}
@@ -47,10 +56,13 @@ export default function ScoopOptions({ name, imagePath }) {
         </Col>
       </Form.Group>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> ccd2ac9 (Added more components and tests.)
 =======
 >>>>>>> f312be6 (Added more features to the ice cream app with functional testing .)
+=======
+>>>>>>> 9b39699 (Fixed merge)
     </Col>
   );
 }
