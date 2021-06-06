@@ -60,5 +60,12 @@
   ]
 }
 ```
+#Deploy en Amazon ECS 
+
+ * Setup the MongoDb to accept connections .
+ * Push the image to Amazon registry of images .
+ * Create the Fairgate cluster .
+ * Create the task and run it .
+ * Open the ports in the vpc to access it .
 
  
