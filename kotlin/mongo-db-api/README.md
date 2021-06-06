@@ -67,5 +67,3 @@
  * Create the Fairgate cluster .
  * Create the task and run it .
  * Open the ports in the vpc to access it .
-
- 
