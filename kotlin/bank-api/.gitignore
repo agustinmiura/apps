@@ -31,5 +31,8 @@ build/
 
 ### VS Code ###
 .vscode/
+<<<<<<< HEAD
 
 db-data
+=======
+>>>>>>> f17257c (Created api with security)

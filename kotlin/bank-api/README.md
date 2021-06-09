@@ -5,6 +5,7 @@ Bank api with the following technologies :
 * Kotlin .
 * Spring boot .
 * Spring security .
+<<<<<<< HEAD
 * Jdk 11 .
 
 Setup :
@@ -23,3 +24,8 @@ Maven stages :
 Teardown :
 
 * Run the command ```docker compose down```
+=======
+* Unit testing.
+* Jdk 11 .
+
+>>>>>>> f17257c (Created api with security)
