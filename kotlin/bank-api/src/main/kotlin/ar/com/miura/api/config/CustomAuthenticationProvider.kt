@@ -1,7 +1,7 @@
 package ar.com.miura.api.config
 
 import ar.com.miura.api.domain.Customer
-import ar.com.miura.api.repository.CustomRepository
+import ar.com.miura.api.repository.CustomerRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.authentication.AuthenticationProvider
 import org.springframework.security.authentication.BadCredentialsException
@@ -15,18 +15,18 @@ import org.springframework.stereotype.Component
 
 @Component
 class CustomAuthenticationProvider @Autowired constructor(
-    private val customRepository:CustomRepository,
+    private val customRepository:CustomerRepository,
     private val passwordEncoder:PasswordEncoder
 ):AuthenticationProvider{
 
     override fun authenticate(authentication: Authentication): Authentication? {
         val username = authentication.name
         val pwd = authentication.credentials.toString()
-        val customer: List<Customer> = customRepository.findByEmail(username)
-        return if (customer.size > 0) {
-            if (passwordEncoder!!.matches(pwd, customer[0].pwd)) {
+        val customers: List<Customer>? = customRepository.findByEmail(username)
+        return if (customers!=null && customers.isNotEmpty()) {
+            if (passwordEncoder!!.matches(pwd, customers[0].pwd)) {
                 val authorities: MutableList<GrantedAuthority> = ArrayList()
-                authorities.add(SimpleGrantedAuthority(customer[0].role_column))
+                authorities.add(SimpleGrantedAuthority(customers[0].role))
                 UsernamePasswordAuthenticationToken(username, pwd, authorities)
             } else {
                 throw BadCredentialsException("Invalid password!")

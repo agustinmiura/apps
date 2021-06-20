@@ -1,25 +1,31 @@
 package ar.com.miura.api.domain
 
-import javax.persistence.Column
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table
+import com.fasterxml.jackson.annotation.JsonIgnore
+import java.time.LocalDateTime
+import javax.persistence.*
 
 @Entity
-@Table(name="custom_users")
-data class Customer (
+class Customer {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    var id: String,
+    @Column(name = "customer_id")
+    val id:Int = -1
 
-    var email:String,
+    val name:String = ""
 
-    var pwd:String,
+    val email:String = ""
 
-    var role_column:String
-) {
-    constructor() : this("","","","")
+    @Column(name = "mobile_number")
+    private val mobileNumber = ""
+
+    @JsonIgnore
+    val pwd:String = ""
+
+    val role:String = ""
+
+    @Column(name = "create_dt")
+    val createDt:String = LocalDateTime.now().toString()
+
 }
 
