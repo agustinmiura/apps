@@ -15,6 +15,7 @@ Setup :
 * Install the jdk 11.
 * Clone the proyect .
 * Run the Postgresql inside the docker folder with the command : ```docker compose up```
+* Set in your .bashrc file the content from ```src/main/resources/environment/create_variables.sh```
 
 Maven stages :
 

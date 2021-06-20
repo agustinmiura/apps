@@ -1,5 +1,5 @@
 package ar.com.miura.api.enum
 
 enum class UserDetailsEnum {
-    MEMORY
+    MEMORY,RELATIONAL_DATABASE
 }
