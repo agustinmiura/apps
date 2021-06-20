@@ -3,9 +3,13 @@ package ar.com.miura.mongodbapi.domain
 import org.bson.types.ObjectId
 import org.springframework.data.annotation.Id
 <<<<<<< HEAD
+<<<<<<< HEAD
 import org.springframework.data.mongodb.core.mapping.DBRef
 =======
 >>>>>>> 1125c07 (Feature/spring boot mongo kotlin)
+=======
+import org.springframework.data.mongodb.core.mapping.DBRef
+>>>>>>> d8a8e34 (Added queries and endpoints .)
 import org.springframework.data.mongodb.core.mapping.Document
 import org.springframework.data.mongodb.core.mapping.Field
 import java.time.LocalDateTime
@@ -23,6 +27,7 @@ data class Student (
 
     @Field(name="department")
 <<<<<<< HEAD
+<<<<<<< HEAD
     @DBRef(lazy=false)
     val department: Department? = Department(),
 
@@ -35,11 +40,20 @@ data class Student (
     @Field(name="subjects")
     val subjects: List<Subject> = ArrayList<Subject>(),
 >>>>>>> 1125c07 (Feature/spring boot mongo kotlin)
+=======
+    @DBRef(lazy=false)
+    val department: Department? = Department(),
+
+    @Field(name="subjects")
+    @DBRef(lazy=false)
+    val subjects: List<Subject> = ArrayList(),
+>>>>>>> d8a8e34 (Added queries and endpoints .)
 
     @Field(name="created_date")
     val createdDate: LocalDateTime = LocalDateTime.now(),
 
     @Field(name="modified_date")
+<<<<<<< HEAD
 <<<<<<< HEAD
     val modifiedDate: LocalDateTime = LocalDateTime.now(),
 
@@ -49,5 +63,11 @@ data class Student (
     val modifiedDate: LocalDateTime = LocalDateTime.now()
 
 >>>>>>> 1125c07 (Feature/spring boot mongo kotlin)
+=======
+    val modifiedDate: LocalDateTime = LocalDateTime.now(),
+
+    @Transient
+    val percentage: Double = 0.0
+>>>>>>> d8a8e34 (Added queries and endpoints .)
 
 )
