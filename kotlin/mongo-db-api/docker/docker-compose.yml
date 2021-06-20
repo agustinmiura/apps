@@ -1,19 +1,7 @@
 version: '3'
 services:
   my-mongoDB:
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     image: mongo:4.4.6
-=======
-    image: mongo:3
->>>>>>> 1125c07 (Feature/spring boot mongo kotlin)
-=======
-    image: mongo:3.4.8
->>>>>>> d8a8e34 (Added queries and endpoints .)
-=======
-    image: mongo:4.4.6
->>>>>>> a16a396 (Spring boot actuator and other things .)
     ports:
       - "27017:27017"
     volumes:

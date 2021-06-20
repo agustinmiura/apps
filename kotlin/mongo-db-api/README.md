@@ -12,26 +12,12 @@
 
 # Getting Started
 
-<<<<<<< HEAD
-<<<<<<< HEAD
  * Setup the ```application.properties``` according to the ```application.properties.sample```
-=======
->>>>>>> 1125c07 (Feature/spring boot mongo kotlin)
-=======
- * Setup the ```application.properties``` according to the ```application.properties.sample```
->>>>>>> d8a8e34 (Added queries and endpoints .)
  * Run the command ```mvn clean compile``` to compile .
  * Run the command ```mvn clean test``` to run test . 
  * Run the command ```docker-compose up``` to start the local image . "
  * Run the command ```mvn clean test``` to get the reports of coverage inside ```/target/site/jacoco/index.html``` . "
-<<<<<<< HEAD
-<<<<<<< HEAD
  * Run the commmand ```mvn clean package``` to generate the file ```target/students-api.jar``` before setting ```application.properties```.
-=======
->>>>>>> 1125c07 (Feature/spring boot mongo kotlin)
-=======
- * Run the commmand ```mvn clean package``` to generate the file ```target/students-api.jar``` before setting ```application.properties```.
->>>>>>> d8a8e34 (Added queries and endpoints .)
 
 #Querying the database 
 
@@ -39,14 +25,6 @@
  * Connect to the database : ```mongo -p $password -u $user -p $password```
  * ```show databases``` To list .
  * ```use $databaseName``` To choose a database name.
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-# Sprint boot actuator :
-
-* Check the endpoint : ```/actuator/health``` and see the health check .
-=======
->>>>>>> d8a8e34 (Added queries and endpoints .)
 
 # Sprint boot actuator :
 
@@ -82,7 +60,6 @@
   ]
 }
 ```
-<<<<<<< HEAD
 #Deploy en Amazon ECS 
 
  * Setup the MongoDb to accept connections .
@@ -92,10 +69,3 @@
  * Open the ports in the vpc to access it .
 
  
-=======
- * 
->>>>>>> 1125c07 (Feature/spring boot mongo kotlin)
-=======
-
- 
->>>>>>> d8a8e34 (Added queries and endpoints .)
