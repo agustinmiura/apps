@@ -2,14 +2,19 @@ package ar.com.miura.api.config
 
 import ar.com.miura.api.enum.SecurityConfigEnum
 import ar.com.miura.api.enum.UserDetailsEnum
+import ar.com.miura.api.repository.CustomRepository
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
 import org.springframework.security.core.userdetails.User
+import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.security.provisioning.InMemoryUserDetailsManager
+import org.springframework.security.provisioning.JdbcUserDetailsManager
+import javax.sql.DataSource;
 
 @Configuration
 open class SecurityConfig(disableDefaults: Boolean = false) : WebSecurityConfigurerAdapter(disableDefaults) {
@@ -29,8 +34,11 @@ open class SecurityConfig(disableDefaults: Boolean = false) : WebSecurityConfigu
                 .antMatchers("/notices").permitAll()
                 .antMatchers("/contact").permitAll()
                 .and()
-                .formLogin().and()
+                .formLogin()
+                .defaultSuccessUrl("/myAccount")
+                .and()
                 .httpBasic()
+
         } else if (securityConfig==SecurityConfigEnum.DENY_ALL) {
             http.authorizeRequests().anyRequest().denyAll().and()
                 .formLogin().and().httpBasic()
@@ -40,6 +48,7 @@ open class SecurityConfig(disableDefaults: Boolean = false) : WebSecurityConfigu
         }
     }
 
+    /* Uncomment to use in memory user details
     @Override
     override fun configure(auth:AuthenticationManagerBuilder) {
         if (userDetailsConfig==UserDetailsEnum.MEMORY) {
@@ -57,6 +66,17 @@ open class SecurityConfig(disableDefaults: Boolean = false) : WebSecurityConfigu
                 .and().passwordEncoder((PlainTextPasswordEncoder()))
         }
     }
+    */
+
+    /**
+     * Use with the default security schema
+     */
+    /*
+    @Bean
+    fun userDetailsService(dataSource:DataSource):UserDetailsService {
+        return JdbcUserDetailsManager(dataSource)
+    }
+    */
 
     @Bean
     fun passwordEncoder(): PasswordEncoder {
