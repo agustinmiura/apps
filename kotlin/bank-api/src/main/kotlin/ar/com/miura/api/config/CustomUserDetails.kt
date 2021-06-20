@@ -2,7 +2,7 @@ package ar.com.miura.api.config
 
 import ar.com.miura.api.domain.CustomDetails
 import ar.com.miura.api.domain.Customer
-import ar.com.miura.api.repository.CustomRepository
+import ar.com.miura.api.repository.CustomerRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UserDetailsService
@@ -14,12 +14,12 @@ import org.springframework.stereotype.Service
  */
 @Service
 class CustomUserDetails @Autowired constructor(
-    private val customRepository: CustomRepository) : UserDetailsService {
+    private val customRepository: CustomerRepository) : UserDetailsService {
     override fun loadUserByUsername(username: String): UserDetails {
-        val users:List<Customer> = customRepository.findByEmail(username)
-        if (users.isEmpty()) {
-            throw UsernameNotFoundException(" User not found : ${username}")
-        }
-        return CustomDetails(users[0])
+        val users: List<Customer>? = customRepository.findByEmail(username)
+            if (users!=null && users.isEmpty()) {
+                throw UsernameNotFoundException(" User not found : ${username}")
+            }
+        return CustomDetails(users?.get(0) ?: Customer())
     }
 }
