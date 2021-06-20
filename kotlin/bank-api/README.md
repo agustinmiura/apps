@@ -24,3 +24,7 @@ Maven stages :
 Teardown :
 
 * Run the command ```docker compose down```
+
+Misc info :
+
+* https://bcrypt-generator.com/ to generate the password .
