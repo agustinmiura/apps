@@ -7,7 +7,11 @@ import ar.com.miura.api.enum.SecurityConfigEnum
 import ar.com.miura.api.enum.UserDetailsEnum
 =======
 import ar.com.miura.api.domain.Authority
+<<<<<<< HEAD
 >>>>>>> 4146936 (feature/security roles)
+=======
+import ar.com.miura.api.filter.*
+>>>>>>> a5a8c6a (Feature/jwt)
 import org.springframework.context.annotation.Bean
 =======
 >>>>>>> f17257c (Created api with security)
@@ -46,6 +50,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority
 >>>>>>> 4146936 (feature/security roles)
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.crypto.password.PasswordEncoder
+import org.springframework.security.web.authentication.www.BasicAuthenticationFilter
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository
 import org.springframework.web.cors.CorsConfiguration
 import java.util.*
@@ -137,6 +142,7 @@ class SecurityConfig(disableDefaults: Boolean = false) : WebSecurityConfigurerAd
             config.maxAge = 3600L
             config
         }.and().csrf()
+<<<<<<< HEAD
             .ignoringAntMatchers("/contact").csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).and()
             .authorizeRequests()
             .antMatchers("/myAccount").hasAnyAuthority("UPDATE","READ")
@@ -147,6 +153,21 @@ class SecurityConfig(disableDefaults: Boolean = false) : WebSecurityConfigurerAd
             .antMatchers("/notices")
             .permitAll()
             .antMatchers("/contact").permitAll().and().httpBasic();
+=======
+        .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+        .and().addFilterBefore(RequestValidationBeforeFilter(), BasicAuthenticationFilter::class.java)
+        .addFilterAfter(AuthoritiesLoggingAfterFilter(), BasicAuthenticationFilter::class.java)
+        .addFilterAt(AuthoritiesLoggingAtFilter(), BasicAuthenticationFilter::class.java)
+        .addFilterBefore(JWTTokenValidatorFilter(), BasicAuthenticationFilter::class.java)
+        .addFilterAfter(JWTTokenGeneratorFilter(), BasicAuthenticationFilter::class.java)
+        .authorizeRequests()
+        .antMatchers("/myAccount").hasRole("USER")
+        .antMatchers("/myBalance").hasAnyRole("USER", "ADMIN")
+        .antMatchers("/myLoans").hasRole("ROOT")
+        .antMatchers("/myCards").hasAnyRole("USER", "ADMIN")
+        .antMatchers("/user").permitAll()
+        .antMatchers("/notices").permitAll()
+>>>>>>> a5a8c6a (Feature/jwt)
     }
 
     private fun getGrantedAuthorities(authorities: Set<Authority>): List<GrantedAuthority>? {

@@ -101,6 +101,11 @@ __react__
 =======
 
 
+<<<<<<< HEAD
 >>>>>>> f0f8522 (feature/security Added repositories and services.)
 =======
 >>>>>>> 4146936 (feature/security roles)
+=======
+
+
+>>>>>>> a5a8c6a (Feature/jwt)
