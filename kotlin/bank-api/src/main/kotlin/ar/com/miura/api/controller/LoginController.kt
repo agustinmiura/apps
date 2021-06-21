@@ -11,8 +11,9 @@ import java.security.Principal
 @RestController
 class LoginController @Autowired constructor(private val customerRepository: CustomerRepository) {
     @RequestMapping("/user")
-    fun getUserDetailsAfterLogin(user: Principal): Customer? {
-        val customers: List<Customer>? = customerRepository.findByEmail(user.name)
+    fun getUserDetailsAfterLogin(user: Principal?): Customer? {
+
+        val customers: List<Customer>? = user?.let { customerRepository.findByEmail(it.name) }
         return if (  customers!=null && customers.size > 0) {
             customers?.get(0)
         } else {

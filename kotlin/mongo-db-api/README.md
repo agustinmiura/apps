@@ -11,57 +11,19 @@
 
 # Getting Started
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
- * Setup the ```application.properties``` according to the ```application.properties.sample```
-=======
->>>>>>> 1125c07 (Feature/spring boot mongo kotlin)
-=======
- * Setup the ```application.properties``` according to the ```application.properties.sample```
->>>>>>> d8a8e34 (Added queries and endpoints .)
- * Run the command ```mvn clean compile``` to compile .
- * Run the command ```mvn clean test``` to run test . 
- * Run the command ```docker-compose up``` to start the local image . "
- * Run the command ```mvn clean test``` to get the reports of coverage inside ```/target/site/jacoco/index.html``` . "
-<<<<<<< HEAD
-<<<<<<< HEAD
- * Run the commmand ```mvn clean package``` to generate the file ```target/students-api.jar``` before setting ```application.properties```.
-=======
->>>>>>> 1125c07 (Feature/spring boot mongo kotlin)
-=======
- * Run the commmand ```mvn clean package``` to generate the file ```target/students-api.jar``` before setting ```application.properties```.
->>>>>>> d8a8e34 (Added queries and endpoints .)
-=======
 - Setup the `application.properties` according to the `application.properties.sample`
 - Run the command `mvn clean compile` to compile .
 - Run the command `mvn clean test` to run test .
 - Run the command `docker-compose up` to start the local image . "
 - Run the command `mvn clean test` to get the reports of coverage inside `/target/site/jacoco/index.html` . "
 - Run the commmand `mvn clean package` to generate the file `target/students-api.jar` before setting `application.properties`.
->>>>>>> 99c6fa6 (feature/security)
 
 #Querying the database
 
-<<<<<<< HEAD
- * Connect to the docker instance : ```sudo docker exec -it $containerName /bin/bash```
- * Connect to the database : ```mongo -p $password -u $user -p $password```
- * ```show databases``` To list .
- * ```use $databaseName``` To choose a database name.
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-# Sprint boot actuator :
-
-* Check the endpoint : ```/actuator/health``` and see the health check .
-=======
->>>>>>> d8a8e34 (Added queries and endpoints .)
-=======
 - Connect to the docker instance : `sudo docker exec -it $containerName /bin/bash`
 - Connect to the database : `mongo -p $password -u $user -p $password`
 - `show databases` To list .
 - `use $databaseName` To choose a database name.
->>>>>>> 99c6fa6 (feature/security)
 
 # Sprint boot actuator :
 
@@ -97,27 +59,11 @@
   ]
 }
 ```
-<<<<<<< HEAD
-<<<<<<< HEAD
-#Deploy en Amazon ECS 
-=======
->>>>>>> 99c6fa6 (feature/security)
 
 #Deploy en Amazon ECS
 
-<<<<<<< HEAD
- 
-=======
- * 
->>>>>>> 1125c07 (Feature/spring boot mongo kotlin)
-=======
-
- 
->>>>>>> d8a8e34 (Added queries and endpoints .)
-=======
 - Setup the MongoDb to accept connections .
 - Push the image to Amazon registry of images .
 - Create the Fairgate cluster .
 - Create the task and run it .
 - Open the ports in the vpc to access it .
->>>>>>> 99c6fa6 (feature/security)

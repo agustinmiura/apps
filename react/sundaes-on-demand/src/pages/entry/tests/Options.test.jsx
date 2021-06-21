@@ -1,13 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 import { render, screen } from "../../../test-utils/testing-library-utils";
-=======
-import { render, screen } from "@testing-library/react";
-import { scryRenderedComponentsWithType } from "react-dom/test-utils";
->>>>>>> ccd2ac9 (Added more components and tests.)
-=======
-import { render, screen } from "../../../test-utils/testing-library-utils";
->>>>>>> f312be6 (Added more features to the ice cream app with functional testing .)
 
 import Options from "../Options";
 
