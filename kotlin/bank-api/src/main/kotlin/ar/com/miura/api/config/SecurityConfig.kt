@@ -26,6 +26,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import org.springframework.security.core.userdetails.User
 import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
@@ -45,6 +46,9 @@ import javax.sql.DataSource;
 >>>>>>> 99c6fa6 (feature/security)
 =======
 =======
+=======
+import org.springframework.security.config.http.SessionCreationPolicy
+>>>>>>> 397d0f8 (Feature/jwt)
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.authority.SimpleGrantedAuthority
 >>>>>>> 4146936 (feature/security roles)
@@ -133,14 +137,17 @@ class SecurityConfig(disableDefaults: Boolean = false) : WebSecurityConfigurerAd
      * Secured /notices - Not Secured /contact - Not Secured
      */
     override fun configure(http: HttpSecurity) {
-        http.cors().configurationSource {
+        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+            .cors().configurationSource {
             val config = CorsConfiguration()
             config.allowedOrigins = Collections.singletonList("http://localhost:4200")
             config.allowedMethods = Collections.singletonList("*")
             config.allowCredentials = true
             config.allowedHeaders = Collections.singletonList("*")
+            config.exposedHeaders = Arrays.asList("Authorization")
             config.maxAge = 3600L
             config
+<<<<<<< HEAD
         }.and().csrf()
 <<<<<<< HEAD
             .ignoringAntMatchers("/contact").csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).and()
@@ -156,8 +163,14 @@ class SecurityConfig(disableDefaults: Boolean = false) : WebSecurityConfigurerAd
 =======
         .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
         .and().addFilterBefore(RequestValidationBeforeFilter(), BasicAuthenticationFilter::class.java)
+=======
+        }.and().csrf().disable()
+        /*
+        .addFilterBefore(RequestValidationBeforeFilter(), BasicAuthenticationFilter::class.java)
+>>>>>>> 397d0f8 (Feature/jwt)
         .addFilterAfter(AuthoritiesLoggingAfterFilter(), BasicAuthenticationFilter::class.java)
         .addFilterAt(AuthoritiesLoggingAtFilter(), BasicAuthenticationFilter::class.java)
+        */
         .addFilterBefore(JWTTokenValidatorFilter(), BasicAuthenticationFilter::class.java)
         .addFilterAfter(JWTTokenGeneratorFilter(), BasicAuthenticationFilter::class.java)
         .authorizeRequests()
@@ -165,7 +178,7 @@ class SecurityConfig(disableDefaults: Boolean = false) : WebSecurityConfigurerAd
         .antMatchers("/myBalance").hasAnyRole("USER", "ADMIN")
         .antMatchers("/myLoans").hasRole("ROOT")
         .antMatchers("/myCards").hasAnyRole("USER", "ADMIN")
-        .antMatchers("/user").permitAll()
+        .antMatchers("/user").authenticated()
         .antMatchers("/notices").permitAll()
 >>>>>>> a5a8c6a (Feature/jwt)
     }

@@ -7,16 +7,16 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication
 import org.springframework.security.core.authority.AuthorityUtils
 import org.springframework.security.core.context.SecurityContextHolder
+import org.springframework.web.filter.OncePerRequestFilter
 import java.nio.charset.StandardCharsets
-import javax.servlet.Filter
 import javax.servlet.FilterChain
-import javax.servlet.ServletRequest
-import javax.servlet.ServletResponse
 import javax.servlet.http.HttpServletRequest
+import javax.servlet.http.HttpServletResponse
 
 
-class JWTTokenValidatorFilter: Filter {
-    override fun doFilter(request: ServletRequest, response: ServletResponse, chain: FilterChain) {
+class JWTTokenValidatorFilter: OncePerRequestFilter() {
+
+    override fun doFilterInternal(request: HttpServletRequest, response: HttpServletResponse, chain: FilterChain) {
         val requestServlet: HttpServletRequest = request as HttpServletRequest
         val jwt: String = requestServlet.getHeader(JWTTokenGeneratorFilter.JWT_HEADER)
         if (null != jwt) {
@@ -41,6 +41,10 @@ class JWTTokenValidatorFilter: Filter {
             }
         }
         chain.doFilter(request, response)
+    }
+
+    override protected fun shouldNotFilter(request: HttpServletRequest): Boolean {
+        return request.getServletPath().equals("/user");
     }
 
 }
