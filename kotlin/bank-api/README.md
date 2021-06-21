@@ -26,6 +26,7 @@ Maven stages :
 Teardown :
 
 * Run the command ```docker compose down```
+<<<<<<< HEAD
 =======
 * Unit testing.
 * Jdk 11 .
@@ -51,3 +52,9 @@ Teardown :
 
 * Run the command ```docker compose down```
 >>>>>>> 75427a7 (feature/security)
+=======
+
+Misc info :
+
+* https://bcrypt-generator.com/ to generate the password .
+>>>>>>> e4ab3b2 (feature/security Added custom authentication provider.)

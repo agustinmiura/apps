@@ -21,6 +21,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 <<<<<<< HEAD
 import org.springframework.security.core.userdetails.User
 import org.springframework.security.core.userdetails.UserDetailsService
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.security.provisioning.InMemoryUserDetailsManager
 <<<<<<< HEAD
@@ -110,8 +111,13 @@ open class SecurityConfig(disableDefaults: Boolean = false) : WebSecurityConfigu
     }
     */
 
+    /**
+     * PlainTextPasswordEncoder
+     * BCryptPasswordEncoder
+     */
     @Bean
     fun passwordEncoder(): PasswordEncoder {
+<<<<<<< HEAD
         return PlainTextPasswordEncoder()
 <<<<<<< HEAD
 =======
@@ -122,6 +128,9 @@ open class SecurityConfig(disableDefaults: Boolean = false) : WebSecurityConfigu
 >>>>>>> f17257c (Created api with security)
 =======
 >>>>>>> 75427a7 (feature/security)
+=======
+        return BCryptPasswordEncoder()
+>>>>>>> e4ab3b2 (feature/security Added custom authentication provider.)
     }
 
 }

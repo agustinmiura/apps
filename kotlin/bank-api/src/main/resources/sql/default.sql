@@ -23,7 +23,7 @@ CREATE TABLE bank.authorities (
 CREATE TABLE bank.users (
 	id uuid NOT NULL DEFAULT gen_random_uuid(),
 	username varchar(45) NOT NULL,
-	"password" varchar(45) NOT NULL,
+	"password" varchar(200) NOT NULL,
 	enabled int4 NOT NULL,
 	CONSTRAINT users_pkey PRIMARY KEY (id)
 );

@@ -17,9 +17,9 @@ class CustomUserDetails @Autowired constructor(
     private val customRepository: CustomRepository) : UserDetailsService {
     override fun loadUserByUsername(username: String): UserDetails {
         val users:List<Customer> = customRepository.findByEmail(username)
-        if (users.size==0) {
+        if (users.isEmpty()) {
             throw UsernameNotFoundException(" User not found : ${username}")
         }
-        return CustomDetails(users.get(0))
+        return CustomDetails(users[0])
     }
 }
