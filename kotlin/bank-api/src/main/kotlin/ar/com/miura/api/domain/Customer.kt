@@ -21,7 +21,6 @@ class Customer {
     @Column(name = "mobile_number")
     private val mobileNumber = ""
 
-    @JsonIgnore
     val pwd:String = ""
 
     val role:String = ""
