@@ -10,3 +10,14 @@ services:
       POSTGRES_DB: default_database # The PostgreSQL default database (automatically created at first launch)
     volumes:
       - ./db-data/:/var/lib/postgresql/data/
+  db-my-sql:
+    image: 'mysql:5.7'
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: 'bank'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    volumes:
+      - ./db-data-mysql/:/var/lib/mysql
