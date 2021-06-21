@@ -3,6 +3,7 @@ package ar.com.miura.api.controller
 import ar.com.miura.api.domain.Contact
 import ar.com.miura.api.repository.ContactRepository
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.security.access.prepost.PostFilter
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
@@ -15,6 +16,7 @@ class ContactController {
     private val contactRepository: ContactRepository? = null
 
     @PostMapping("/contact")
+    @PostFilter(" filterObject.contactName == 'Test' ")
     fun saveContactInquiryDetails(@RequestBody contact: Contact): Contact? {
         contact.contactId = (getServiceReqNumber())
         contact.createDt =

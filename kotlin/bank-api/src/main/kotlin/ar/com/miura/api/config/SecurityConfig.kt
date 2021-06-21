@@ -4,6 +4,7 @@ import ar.com.miura.api.domain.Authority
 import ar.com.miura.api.filter.*
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
 import org.springframework.security.config.http.SessionCreationPolicy
@@ -18,6 +19,7 @@ import java.util.*
 
 
 @Configuration
+@EnableGlobalMethodSecurity(prePostEnabled = true,securedEnabled = true,  jsr250Enabled = true)
 class SecurityConfig(disableDefaults: Boolean = false) : WebSecurityConfigurerAdapter(disableDefaults) {
 
     /**
@@ -36,11 +38,6 @@ class SecurityConfig(disableDefaults: Boolean = false) : WebSecurityConfigurerAd
             config.maxAge = 3600L
             config
         }.and().csrf().disable()
-        /*
-        .addFilterBefore(RequestValidationBeforeFilter(), BasicAuthenticationFilter::class.java)
-        .addFilterAfter(AuthoritiesLoggingAfterFilter(), BasicAuthenticationFilter::class.java)
-        .addFilterAt(AuthoritiesLoggingAtFilter(), BasicAuthenticationFilter::class.java)
-        */
         .addFilterBefore(JWTTokenValidatorFilter(), BasicAuthenticationFilter::class.java)
         .addFilterAfter(JWTTokenGeneratorFilter(), BasicAuthenticationFilter::class.java)
         .authorizeRequests()
