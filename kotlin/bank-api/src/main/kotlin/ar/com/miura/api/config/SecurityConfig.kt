@@ -12,7 +12,6 @@ import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository
 import org.springframework.web.cors.CorsConfiguration
 import java.util.*
-import kotlin.collections.ArrayList
 
 
 @Configuration
@@ -31,17 +30,23 @@ class SecurityConfig(disableDefaults: Boolean = false) : WebSecurityConfigurerAd
             config.allowedHeaders = Collections.singletonList("*")
             config.maxAge = 3600L
             config
-        }.and().csrf()
-            .ignoringAntMatchers("/contact").csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).and()
+        }.and().csrf().disable()
+            /*
+            .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+            .and().addFilterBefore(RequestValidationBeforeFilter(), BasicAuthenticationFilter::class.java)
+            .addFilterAfter(AuthoritiesLoggingAfterFilter(), BasicAuthenticationFilter::class.java)
+            .addFilterAt(AuthoritiesLoggingAtFilter(), BasicAuthenticationFilter::class.java)
+            */
+            /*
+            .and()
             .authorizeRequests()
-            .antMatchers("/myAccount").hasAnyAuthority("UPDATE","READ")
-            .antMatchers("/myBalance").authenticated()
-            .antMatchers("/myLoans").authenticated()
-            .antMatchers("/myCards").authenticated()
-            .antMatchers("/user").authenticated()
-            .antMatchers("/notices")
-            .permitAll()
-            .antMatchers("/contact").permitAll().and().httpBasic();
+            .antMatchers("/myAccount").hasRole("USER")
+            .antMatchers("/myBalance").hasAnyRole("USER", "ADMIN")
+            .antMatchers("/myLoans").hasRole("ROOT")
+            .antMatchers("/myCards").hasAnyRole("USER", "ADMIN")
+            .antMatchers("/user").permitAll()
+            .antMatchers("/notices").permitAll()
+            */
     }
 
     private fun getGrantedAuthorities(authorities: Set<Authority>): List<GrantedAuthority>? {
