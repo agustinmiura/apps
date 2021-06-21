@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
+import org.springframework.security.config.http.SessionCreationPolicy
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
@@ -24,19 +25,22 @@ class SecurityConfig(disableDefaults: Boolean = false) : WebSecurityConfigurerAd
      * Secured /notices - Not Secured /contact - Not Secured
      */
     override fun configure(http: HttpSecurity) {
-        http.cors().configurationSource {
+        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+            .cors().configurationSource {
             val config = CorsConfiguration()
             config.allowedOrigins = Collections.singletonList("http://localhost:4200")
             config.allowedMethods = Collections.singletonList("*")
             config.allowCredentials = true
             config.allowedHeaders = Collections.singletonList("*")
+            config.exposedHeaders = Arrays.asList("Authorization")
             config.maxAge = 3600L
             config
-        }.and().csrf()
-        .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
-        .and().addFilterBefore(RequestValidationBeforeFilter(), BasicAuthenticationFilter::class.java)
+        }.and().csrf().disable()
+        /*
+        .addFilterBefore(RequestValidationBeforeFilter(), BasicAuthenticationFilter::class.java)
         .addFilterAfter(AuthoritiesLoggingAfterFilter(), BasicAuthenticationFilter::class.java)
         .addFilterAt(AuthoritiesLoggingAtFilter(), BasicAuthenticationFilter::class.java)
+        */
         .addFilterBefore(JWTTokenValidatorFilter(), BasicAuthenticationFilter::class.java)
         .addFilterAfter(JWTTokenGeneratorFilter(), BasicAuthenticationFilter::class.java)
         .authorizeRequests()
@@ -44,7 +48,7 @@ class SecurityConfig(disableDefaults: Boolean = false) : WebSecurityConfigurerAd
         .antMatchers("/myBalance").hasAnyRole("USER", "ADMIN")
         .antMatchers("/myLoans").hasRole("ROOT")
         .antMatchers("/myCards").hasAnyRole("USER", "ADMIN")
-        .antMatchers("/user").permitAll()
+        .antMatchers("/user").authenticated()
         .antMatchers("/notices").permitAll()
     }
 
