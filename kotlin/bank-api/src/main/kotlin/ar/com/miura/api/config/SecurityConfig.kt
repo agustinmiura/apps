@@ -1,66 +1,71 @@
 package ar.com.miura.api.config
 
-import ar.com.miura.api.enum.SecurityConfigEnum
-import ar.com.miura.api.enum.UserDetailsEnum
+import ar.com.miura.api.domain.Authority
+import ar.com.miura.api.filter.*
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
-import org.springframework.security.core.userdetails.User
+import org.springframework.security.config.http.SessionCreationPolicy
+import org.springframework.security.core.GrantedAuthority
+import org.springframework.security.core.authority.SimpleGrantedAuthority
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.crypto.password.PasswordEncoder
-import org.springframework.security.provisioning.InMemoryUserDetailsManager
+import org.springframework.security.web.authentication.www.BasicAuthenticationFilter
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository
+import org.springframework.web.cors.CorsConfiguration
+import java.util.*
+
 
 @Configuration
-open class SecurityConfig(disableDefaults: Boolean = false) : WebSecurityConfigurerAdapter(disableDefaults) {
+@EnableGlobalMethodSecurity(prePostEnabled = true,securedEnabled = true,  jsr250Enabled = true)
+class SecurityConfig(disableDefaults: Boolean = false) : WebSecurityConfigurerAdapter(disableDefaults) {
 
-    val securityConfig: SecurityConfigEnum = SecurityConfigEnum.CUSTOM
-
-    val userDetailsConfig: UserDetailsEnum = UserDetailsEnum.MEMORY
-
-    @Override
-    override fun configure(http:HttpSecurity) {
-        if (securityConfig==SecurityConfigEnum.CUSTOM) {
-            http.authorizeRequests()
-                .antMatchers("/myAccount").authenticated()
-                .antMatchers("/myBalance").authenticated()
-                .antMatchers("/myLoans").authenticated()
-                .antMatchers("/myCards").authenticated()
-                .antMatchers("/notices").permitAll()
-                .antMatchers("/contact").permitAll()
-                .and()
-                .formLogin().and()
-                .httpBasic()
-        } else if (securityConfig==SecurityConfigEnum.DENY_ALL) {
-            http.authorizeRequests().anyRequest().denyAll().and()
-                .formLogin().and().httpBasic()
-        } else {
-            http.authorizeRequests().anyRequest().permitAll().and()
-                .formLogin().and().httpBasic()
-        }
+    /**
+     * /myAccount - Secured /myBalance - Secured /myLoans - Secured /myCards -
+     * Secured /notices - Not Secured /contact - Not Secured
+     */
+    override fun configure(http: HttpSecurity) {
+        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+            .cors().configurationSource {
+            val config = CorsConfiguration()
+            config.allowedOrigins = Collections.singletonList("http://localhost:4200")
+            config.allowedMethods = Collections.singletonList("*")
+            config.allowCredentials = true
+            config.allowedHeaders = Collections.singletonList("*")
+            config.exposedHeaders = Arrays.asList("Authorization")
+            config.maxAge = 3600L
+            config
+        }.and().csrf().disable()
+        .addFilterBefore(JWTTokenValidatorFilter(), BasicAuthenticationFilter::class.java)
+        .addFilterAfter(JWTTokenGeneratorFilter(), BasicAuthenticationFilter::class.java)
+        .authorizeRequests()
+        .antMatchers("/myAccount").hasRole("USER")
+        .antMatchers("/myBalance").hasAnyRole("USER", "ADMIN")
+        .antMatchers("/myLoans").hasRole("ROOT")
+        .antMatchers("/myCards").hasAnyRole("USER", "ADMIN")
+        .antMatchers("/user").authenticated()
+        .antMatchers("/notices").permitAll()
     }
 
-    @Override
-    override fun configure(auth:AuthenticationManagerBuilder) {
-        if (userDetailsConfig==UserDetailsEnum.MEMORY) {
-            val userDetailsService = InMemoryUserDetailsManager()
-            val user = User.withUsername("admin").password("12345").authorities("admin").build()
-            val user1 = User.withUsername("user").password("12345").authorities("read").build()
-            userDetailsService.createUser(user)
-            userDetailsService.createUser(user1)
-            auth.userDetailsService(userDetailsService)
-
-        } else {
-            auth.inMemoryAuthentication().withUser("admin").password("12345").authorities("admin")
-                .and()
-                .withUser("user").password("12345").authorities("read")
-                .and().passwordEncoder((PlainTextPasswordEncoder()))
+    private fun getGrantedAuthorities(authorities: Set<Authority>): List<GrantedAuthority>? {
+        val grantedAuthorities: MutableList<GrantedAuthority> = ArrayList()
+        for (authority in authorities) {
+            grantedAuthorities.add(SimpleGrantedAuthority(authority.name))
         }
+        return grantedAuthorities
     }
 
+    /**
+     * PlainTextPasswordEncoder
+     * BCryptPasswordEncoder
+     */
     @Bean
     fun passwordEncoder(): PasswordEncoder {
-        return PlainTextPasswordEncoder()
+        return BCryptPasswordEncoder()
     }
 
 }
+
+
