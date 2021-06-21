@@ -29,6 +29,7 @@
 <<<<<<< HEAD
 - **[bank-api]** -Bank api with Kotlin and Spring boot .
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 Collections of apps that I have created .
 ========================================
@@ -101,3 +102,5 @@ __react__
 
 
 >>>>>>> f0f8522 (feature/security Added repositories and services.)
+=======
+>>>>>>> 4146936 (feature/security roles)

@@ -1,9 +1,13 @@
 package ar.com.miura.api.config
 
+<<<<<<< HEAD
 import ar.com.miura.api.enum.SecurityConfigEnum
 <<<<<<< HEAD
 <<<<<<< HEAD
 import ar.com.miura.api.enum.UserDetailsEnum
+=======
+import ar.com.miura.api.domain.Authority
+>>>>>>> 4146936 (feature/security roles)
 import org.springframework.context.annotation.Bean
 =======
 >>>>>>> f17257c (Created api with security)
@@ -14,6 +18,7 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -35,17 +40,23 @@ import org.springframework.security.provisioning.JdbcUserDetailsManager
 import javax.sql.DataSource;
 >>>>>>> 99c6fa6 (feature/security)
 =======
+=======
+import org.springframework.security.core.GrantedAuthority
+import org.springframework.security.core.authority.SimpleGrantedAuthority
+>>>>>>> 4146936 (feature/security roles)
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository
 import org.springframework.web.cors.CorsConfiguration
 import java.util.*
+import kotlin.collections.ArrayList
 
 >>>>>>> f0f8522 (feature/security Added repositories and services.)
 
 @Configuration
 class SecurityConfig(disableDefaults: Boolean = false) : WebSecurityConfigurerAdapter(disableDefaults) {
 
+<<<<<<< HEAD
     val securityConfig: SecurityConfigEnum = SecurityConfigEnum.CUSTOM
 
 <<<<<<< HEAD
@@ -110,6 +121,8 @@ class SecurityConfig(disableDefaults: Boolean = false) : WebSecurityConfigurerAd
 
 =======
 >>>>>>> f0f8522 (feature/security Added repositories and services.)
+=======
+>>>>>>> 4146936 (feature/security roles)
     /**
      * /myAccount - Secured /myBalance - Secured /myLoans - Secured /myCards -
      * Secured /notices - Not Secured /contact - Not Secured
@@ -123,22 +136,25 @@ class SecurityConfig(disableDefaults: Boolean = false) : WebSecurityConfigurerAd
             config.allowedHeaders = Collections.singletonList("*")
             config.maxAge = 3600L
             config
-        }.and().csrf().ignoringAntMatchers("/contact")
-            .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).and().authorizeRequests()
-            .antMatchers("/myAccount").authenticated().antMatchers("/myBalance").authenticated()
-            .antMatchers("/myLoans").authenticated().antMatchers("/myCards").authenticated()
-            .antMatchers("/user").authenticated().antMatchers("/notices").permitAll()
-            .antMatchers("/contact").permitAll().and().httpBasic()
+        }.and().csrf()
+            .ignoringAntMatchers("/contact").csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).and()
+            .authorizeRequests()
+            .antMatchers("/myAccount").hasAnyAuthority("UPDATE","READ")
+            .antMatchers("/myBalance").authenticated()
+            .antMatchers("/myLoans").authenticated()
+            .antMatchers("/myCards").authenticated()
+            .antMatchers("/user").authenticated()
+            .antMatchers("/notices")
+            .permitAll()
+            .antMatchers("/contact").permitAll().and().httpBasic();
     }
 
-    private fun getCorsConfiguration():CorsConfiguration {
-        var config:CorsConfiguration = CorsConfiguration()
-        config.allowedOrigins = Collections.singletonList("http://localhost:4200")
-        config.allowedMethods = Collections.singletonList("*")
-        config.allowCredentials = true
-        config.allowedHeaders = Collections.singletonList("*")
-        config.maxAge = 3600L
-        return config
+    private fun getGrantedAuthorities(authorities: Set<Authority>): List<GrantedAuthority>? {
+        val grantedAuthorities: MutableList<GrantedAuthority> = ArrayList()
+        for (authority in authorities) {
+            grantedAuthorities.add(SimpleGrantedAuthority(authority.name))
+        }
+        return grantedAuthorities
     }
 
     /**

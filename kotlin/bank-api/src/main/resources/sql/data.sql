@@ -148,4 +148,20 @@ INSERT INTO bank.notice_details
 (notice_id, create_dt, notic_beg_dt, notic_end_dt, notice_details, notice_summary, update_dt)
 VALUES(0, '', '', '', '', '', '');
 
+CREATE TABLE `authorities` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `customer_id` int NOT NULL,
+  `name` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `customer_id` (`customer_id`),
+  CONSTRAINT `authorities_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`)
+);
 
+INSERT INTO `authorities` (`customer_id`, `name`)
+ VALUES (1, 'READ');
+
+INSERT INTO `authorities` (`customer_id`, `name`)
+ VALUES (1, 'WRITE');
+
+UPDATE authorities SET name="ROLE_USER" WHERE id=1;
+UPDATE authorities SET name="ROLE_ADMIN" WHERE id=2;

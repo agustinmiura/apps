@@ -80,4 +80,6 @@ yarn-error.log*
 .npm/
 yarn.lock
 
+./db-data-mysql
 
+kotlin/bank-api/docker/db-data-mysql/*
