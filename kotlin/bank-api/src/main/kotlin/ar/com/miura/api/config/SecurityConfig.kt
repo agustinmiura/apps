@@ -1,6 +1,7 @@
 package ar.com.miura.api.config
 
 import ar.com.miura.api.domain.Authority
+import ar.com.miura.api.filter.*
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
@@ -9,6 +10,7 @@ import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.crypto.password.PasswordEncoder
+import org.springframework.security.web.authentication.www.BasicAuthenticationFilter
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository
 import org.springframework.web.cors.CorsConfiguration
 import java.util.*
@@ -30,23 +32,20 @@ class SecurityConfig(disableDefaults: Boolean = false) : WebSecurityConfigurerAd
             config.allowedHeaders = Collections.singletonList("*")
             config.maxAge = 3600L
             config
-        }.and().csrf().disable()
-            /*
-            .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
-            .and().addFilterBefore(RequestValidationBeforeFilter(), BasicAuthenticationFilter::class.java)
-            .addFilterAfter(AuthoritiesLoggingAfterFilter(), BasicAuthenticationFilter::class.java)
-            .addFilterAt(AuthoritiesLoggingAtFilter(), BasicAuthenticationFilter::class.java)
-            */
-            /*
-            .and()
-            .authorizeRequests()
-            .antMatchers("/myAccount").hasRole("USER")
-            .antMatchers("/myBalance").hasAnyRole("USER", "ADMIN")
-            .antMatchers("/myLoans").hasRole("ROOT")
-            .antMatchers("/myCards").hasAnyRole("USER", "ADMIN")
-            .antMatchers("/user").permitAll()
-            .antMatchers("/notices").permitAll()
-            */
+        }.and().csrf()
+        .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+        .and().addFilterBefore(RequestValidationBeforeFilter(), BasicAuthenticationFilter::class.java)
+        .addFilterAfter(AuthoritiesLoggingAfterFilter(), BasicAuthenticationFilter::class.java)
+        .addFilterAt(AuthoritiesLoggingAtFilter(), BasicAuthenticationFilter::class.java)
+        .addFilterBefore(JWTTokenValidatorFilter(), BasicAuthenticationFilter::class.java)
+        .addFilterAfter(JWTTokenGeneratorFilter(), BasicAuthenticationFilter::class.java)
+        .authorizeRequests()
+        .antMatchers("/myAccount").hasRole("USER")
+        .antMatchers("/myBalance").hasAnyRole("USER", "ADMIN")
+        .antMatchers("/myLoans").hasRole("ROOT")
+        .antMatchers("/myCards").hasAnyRole("USER", "ADMIN")
+        .antMatchers("/user").permitAll()
+        .antMatchers("/notices").permitAll()
     }
 
     private fun getGrantedAuthorities(authorities: Set<Authority>): List<GrantedAuthority>? {
