@@ -31,6 +31,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 Collections of apps that I have created .
 ========================================
@@ -112,3 +113,7 @@ __react__
 >>>>>>> a5a8c6a (Feature/jwt)
 =======
 >>>>>>> 397d0f8 (Feature/jwt)
+=======
+
+
+>>>>>>> 52a7806 (Feature/security method)

@@ -20,6 +20,7 @@ import ar.com.miura.api.enum.UserDetailsEnum
 import org.springframework.context.annotation.Bean
 >>>>>>> 75427a7 (feature/security)
 import org.springframework.context.annotation.Configuration
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
 <<<<<<< HEAD
@@ -63,6 +64,7 @@ import kotlin.collections.ArrayList
 >>>>>>> f0f8522 (feature/security Added repositories and services.)
 
 @Configuration
+@EnableGlobalMethodSecurity(prePostEnabled = true,securedEnabled = true,  jsr250Enabled = true)
 class SecurityConfig(disableDefaults: Boolean = false) : WebSecurityConfigurerAdapter(disableDefaults) {
 
 <<<<<<< HEAD
@@ -165,12 +167,15 @@ class SecurityConfig(disableDefaults: Boolean = false) : WebSecurityConfigurerAd
         .and().addFilterBefore(RequestValidationBeforeFilter(), BasicAuthenticationFilter::class.java)
 =======
         }.and().csrf().disable()
+<<<<<<< HEAD
         /*
         .addFilterBefore(RequestValidationBeforeFilter(), BasicAuthenticationFilter::class.java)
 >>>>>>> 397d0f8 (Feature/jwt)
         .addFilterAfter(AuthoritiesLoggingAfterFilter(), BasicAuthenticationFilter::class.java)
         .addFilterAt(AuthoritiesLoggingAtFilter(), BasicAuthenticationFilter::class.java)
         */
+=======
+>>>>>>> 52a7806 (Feature/security method)
         .addFilterBefore(JWTTokenValidatorFilter(), BasicAuthenticationFilter::class.java)
         .addFilterAfter(JWTTokenGeneratorFilter(), BasicAuthenticationFilter::class.java)
         .authorizeRequests()
