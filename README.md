@@ -22,6 +22,3 @@
 
 - **[mongo-db-api]** -Mongo db api with Kotlin and Spring Boot .
 - **[bank-api]** -Bank api with Kotlin and Spring boot .
-
-
-

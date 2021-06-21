@@ -2,7 +2,9 @@ package ar.com.miura.api.domain
 
 import com.fasterxml.jackson.annotation.JsonIgnore
 import java.time.LocalDateTime
+import java.util.*
 import javax.persistence.*
+
 
 @Entity
 class Customer {
@@ -26,6 +28,10 @@ class Customer {
 
     @Column(name = "create_dt")
     val createDt:String = LocalDateTime.now().toString()
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "customer", fetch = FetchType.EAGER)
+    var authorities: Set<Authority> = TreeSet()
 
 }
 

@@ -1,5 +1,6 @@
 package ar.com.miura.api.config
 
+import ar.com.miura.api.domain.Authority
 import ar.com.miura.api.domain.Customer
 import ar.com.miura.api.repository.CustomerRepository
 import org.springframework.beans.factory.annotation.Autowired
@@ -25,9 +26,7 @@ class CustomAuthenticationProvider @Autowired constructor(
         val customers: List<Customer>? = customRepository.findByEmail(username)
         return if (customers!=null && customers.isNotEmpty()) {
             if (passwordEncoder!!.matches(pwd, customers[0].pwd)) {
-                val authorities: MutableList<GrantedAuthority> = ArrayList()
-                authorities.add(SimpleGrantedAuthority(customers[0].role))
-                UsernamePasswordAuthenticationToken(username, pwd, authorities)
+                UsernamePasswordAuthenticationToken(username, pwd, getGrantedAuthorities(customers.get(0).authorities))
             } else {
                 throw BadCredentialsException("Invalid password!")
             }
@@ -35,7 +34,16 @@ class CustomAuthenticationProvider @Autowired constructor(
             throw BadCredentialsException("No user registered with this details!")
         }
     }
+
     override fun supports(authenticationType: Class<*>): Boolean {
         return authenticationType == UsernamePasswordAuthenticationToken::class.java
+    }
+
+    private fun getGrantedAuthorities(authorities: Set<Authority>): List<GrantedAuthority>? {
+        val grantedAuthorities: MutableList<GrantedAuthority> = ArrayList()
+        for (authority in authorities) {
+            grantedAuthorities.add(SimpleGrantedAuthority(authority.name))
+        }
+        return grantedAuthorities
     }
 }
