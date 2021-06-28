@@ -11,12 +11,12 @@
 - Run the command `mvn clean compile` to compile .
 - Run the command `mvn clean test` to run test .
 
-#Accesing H2 database 
+# Accesing H2 database 
 
 - Go to the url `http://localhost:8080/h2-console/login.do`
 - See the content
 
-#Content for the application properties file 
+# Content for the application properties file 
 
 ```
 spring.jpa.show-sql=true
