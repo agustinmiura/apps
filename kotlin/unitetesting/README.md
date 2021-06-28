@@ -15,3 +15,12 @@
 
 - Go to the url `http://localhost:8080/h2-console/login.do`
 - See the content
+
+#Content for the application properties file 
+
+```
+spring.jpa.show-sql=true
+spring.h2.console.enabled=true
+spring.datasource.url=jdbc:h2:mem:testdb
+spring.data.jpa.repositories.bootstrap-mode=default
+```
