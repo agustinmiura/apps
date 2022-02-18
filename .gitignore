@@ -83,3 +83,5 @@ yarn.lock
 ./db-data-mysql
 
 kotlin/bank-api/docker/db-data-mysql/*
+
+.gradle/*
